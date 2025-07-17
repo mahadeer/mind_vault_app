@@ -1,10 +1,6 @@
-use mongodb::{bson};
+use mongodb::{bson, Client};
 use thiserror::Error;
-
-// Re-export common MongoDB types for convenience
-pub use mongodb::Client as MongoDbClient;
-pub use mongodb::Database as MongoDatabase; // Renamed to avoid confusion with `db` module
-
+pub type DbClient = Client;
 #[derive(Debug, Error)]
 pub enum DbError {
     #[error("MongoDB error: {0}")]

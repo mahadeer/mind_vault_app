@@ -1,4 +1,4 @@
 pub mod db;
 pub mod repository;
-mod models;
+pub mod models;
 mod config;
