@@ -1,29 +1,57 @@
 use axum::response::ErrorResponse;
-use axum::Router;
-use core::models::DbClient;
-use shared::models::task_model::{CreateTaskRequest, Task};
+use core::models::AppDatabase;
+use core::repository::task_repo::TaskRepo;
+use shared::models::task_model::{CreateTaskRequest, Task, UpdateTaskRequest};
+use tracing::error;
 
 #[derive(Clone, Debug)]
 pub(crate) struct TaskService {
-    db_client: DbClient,
+    task_repo: TaskRepo,
 }
 
 impl TaskService {
-    pub(crate) fn new(db_client: DbClient) -> TaskService {
-        TaskService {
-            db_client
+    pub(crate) fn new(app_database: AppDatabase) -> TaskService {
+        let task_repo = TaskRepo::new(app_database);
+        TaskService { task_repo }
+    }
+
+    pub(crate) async fn create_task(
+        &self,
+        new_task: CreateTaskRequest,
+    ) -> Result<Task, ErrorResponse> {
+        let created_task = self.task_repo.add_task(new_task).await;
+        Ok(created_task)
+    }
+
+    pub(crate) async fn get_all_tasks(&self) -> Result<Vec<Task>, ErrorResponse> {
+        let tasks = self.task_repo.find_all().await;
+        match tasks {
+            Ok(tasks) => Ok(tasks),
+            Err(e) => {
+                error!("Error fetching tasks: {}", e);
+                Err(ErrorResponse::from("Error fetching tasks"))
+            }
         }
     }
 
-    pub(crate) fn create_task(&self, new_task: CreateTaskRequest) -> Result<Task, ErrorResponse> {
-     todo!()
+    pub(crate) async fn get_task_by_id(&self, task_id: i64) -> Result<Task, ErrorResponse> {
+        let task = self.task_repo.find_by_id(task_id).await;
+        Ok(task)
     }
 
-    pub(crate) fn get_all_tasks(&self) -> Result<Vec<Task>, ErrorResponse> {
-        todo!()
+    pub(crate) async fn update_task_by_id(
+        &self,
+        task_id: i64,
+        updated_task: UpdateTaskRequest,
+    ) -> Result<Task, ErrorResponse> {
+        let task = self.task_repo.update_by_id(task_id, updated_task).await;
+        Ok(task)
     }
 
-    pub(crate) fn get_task_by_id(&self, task_id: i64) -> Result<Task, ErrorResponse> {
-        todo!()
+    pub(crate) async fn delete_task_by_id(&self, task_id: i64) -> Result<String, ErrorResponse> {
+        match self.task_repo.delete_by_id(task_id).await {
+            Ok(result) => Ok(result),
+            Err(e) => Err(ErrorResponse::from(format!("Error deleting tasks, {:?}", e))),
+        }
     }
 }

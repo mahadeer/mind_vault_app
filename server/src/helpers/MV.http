@@ -1,0 +1,22 @@
+###
+
+# curl -X POST
+#  -H "Content-Type: application/json"
+#  -d '{
+#    "name": "Buy Groceries",
+#    "description": "Milk, eggs, bread, fruits, vegetables",
+#    "status": "pending",
+#    "due_date": "2025-07-20",
+#    "schedule": "Once"
+#  }'
+#  http://localhost:3000/tasks
+POST http://localhost:4500/tasks
+Content-Type: application/json
+
+{
+  "name": "Sell Mobile",
+  "description": "Milk, eggs, bread, fruits, vegetables"
+}
+
+###
+

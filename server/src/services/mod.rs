@@ -1,25 +1,29 @@
 pub mod task_service;
 
-use axum::Router;
-use core::models::DbClient;
 use crate::routes::task_routes::TaskRouter;
-use crate::services::task_service::TaskService;
+use axum::Router;
+use axum::response::Html;
+use axum::routing::get;
+use core::models::AppDatabase;
 
 pub struct ApiService {
-    pub db_client: DbClient,
+    pub app_database: AppDatabase,
 }
 
 impl ApiService {
-    pub(crate) fn new(db_client: DbClient) -> ApiService {
-        ApiService {
-            db_client
-        }
+    pub(crate) fn new(app_database: AppDatabase) -> ApiService {
+        ApiService { app_database }
     }
 
     pub(crate) fn get_service_handlers(&self) -> Router {
-        let task_router = TaskRouter::new(self.db_client.clone());
+        let task_router = TaskRouter::new(self.app_database.clone());
         let router = Router::new()
+            .route("/", get(index_handler))
             .nest("/tasks", task_router.get_routes());
         router
     }
+}
+
+async fn index_handler() -> Html<&'static str> {
+    Html(include_str!("../templates/index.html"))
 }

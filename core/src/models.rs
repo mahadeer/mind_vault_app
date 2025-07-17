@@ -1,6 +1,9 @@
-use mongodb::{bson, Client};
+use mongodb::{bson, Collection, Database};
 use thiserror::Error;
-pub type DbClient = Client;
+
+pub type AppDatabase = Database;
+pub type DbCollection<T> = Collection<T>;
+
 #[derive(Debug, Error)]
 pub enum DbError {
     #[error("MongoDB error: {0}")]
