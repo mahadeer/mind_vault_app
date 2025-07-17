@@ -1,0 +1,13 @@
+[package]
+name = "shared"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+tracing-subscriber = { version = "0.3", features = ["env-filter", "std", "fmt", "json"] }
+tracing = "0.1.41"
+tracing-appender = "0.2"
+serde = { version = "1.0.219", features = ["derive"] }

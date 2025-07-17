@@ -1,0 +1,11 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.4"
+tokio = { version = "1.46", features = ["full"] } # For asynchronous operations (if you go async)
+tracing = "0.1.41"
+core = { path = "../core" }
+shared = { path = "../shared" }
