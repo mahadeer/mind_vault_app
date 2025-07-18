@@ -1,0 +1,35 @@
+{"timestamp":"2025-07-18T00:23:02.896850Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:23:02.896895Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:23:02.899439Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:23:02.899463Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:23:02.900966Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:23:23.119109Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T00:26:37.134744Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:26:37.134761Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:26:37.135371Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:26:37.135375Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:26:37.136120Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:29:09.428552Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:29:09.428570Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:29:09.429257Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:29:09.429262Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:29:09.429827Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:39:03.577876Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:39:03.577893Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:39:03.578554Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:39:03.578560Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:39:03.579378Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:39:37.618411Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T00:40:18.574879Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:40:18.574899Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:40:18.575656Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:40:18.575662Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:40:18.576541Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:45:50.902239Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T00:45:50.902256Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T00:45:50.902866Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T00:45:50.902868Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T00:45:50.903551Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T00:46:39.490516Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T00:48:18.918000Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T00:49:06.748377Z","level":"INFO","message":"Fetching task with ID: 7","target":"server::helpers::task_handlers"}
