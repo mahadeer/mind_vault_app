@@ -33,3 +33,40 @@
 {"timestamp":"2025-07-18T00:46:39.490516Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
 {"timestamp":"2025-07-18T00:48:18.918000Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
 {"timestamp":"2025-07-18T00:49:06.748377Z","level":"INFO","message":"Fetching task with ID: 7","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T10:47:27.062008Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T10:47:27.062038Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T10:47:27.063161Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T10:47:27.063171Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T10:47:27.065032Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T10:51:25.602118Z","level":"INFO","message":"Task created successfully with ID: 21","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T10:51:27.615094Z","level":"INFO","message":"Task created successfully with ID: 22","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T10:51:29.262351Z","level":"INFO","message":"Task created successfully with ID: 23","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T10:51:45.248792Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:23:59.433255Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:24:01.016676Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:24:02.288698Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:30:29.970686Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:30:35.503888Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:30:39.194028Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:31:51.653588Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:31:53.413646Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:31:54.752390Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:41:17.977259Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:43:57.475979Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:48:07.164163Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:48:10.628037Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:50:42.254258Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:50:45.788854Z","level":"INFO","message":"Task created successfully with ID: 4","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:52:50.202043Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:46.071275Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:54.758922Z","level":"INFO","message":"Task deleted with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:54.763827Z","level":"INFO","message":"Task successfully deleted with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:56.042069Z","level":"INFO","message":"Task deleted with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:56.043324Z","level":"INFO","message":"Task successfully deleted with ID: 2","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:58.035145Z","level":"INFO","message":"Task deleted with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:58.036756Z","level":"INFO","message":"Task successfully deleted with ID: 3","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:59.103373Z","level":"INFO","message":"Task deleted with ID: 4","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:55:59.107314Z","level":"INFO","message":"Task successfully deleted with ID: 4","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:56:14.435400Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:58:37.538276Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T11:59:06.360205Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}

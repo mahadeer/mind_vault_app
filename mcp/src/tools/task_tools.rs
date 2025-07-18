@@ -1,11 +1,13 @@
-use crate::utils::{as_content_list_string, as_content_string};
-use reqwest::Client;
+use crate::models::{CreateUserTask, GetTaskById, UpdateUserTask};
+use crate::utils::{as_content_list_string, as_content_string, get_content_from_response};
+use reqwest::{Client};
 use rmcp::ErrorData as RmcpError;
 use rmcp::handler::server::tool::{Parameters, ToolRouter};
-use rmcp::model::{CallToolResult, Implementation, ProtocolVersion, ServerCapabilities, ServerInfo};
+use rmcp::model::{
+    CallToolResult, Implementation, ProtocolVersion, ServerCapabilities, ServerInfo,
+};
 use rmcp::{ServerHandler, tool, tool_handler, tool_router};
 use shared::models::task_model::Task;
-use crate::models::GetTaskById;
 
 #[derive(Debug)]
 pub struct TaskTool {
@@ -41,15 +43,89 @@ impl TaskTool {
 
     #[tool(
         name = "Get Task by id",
-        description = "Get a task by its id"
+        description = "Retrieves tasks based on optional filters such as status, title, date, or schedule. Can be used to list all tasks or only those matching certain criteria like 'pending', 'due today', or by keyword in title."
     )]
-    pub async fn get_task_by_id(&self, Parameters(GetTaskById{task_id}): Parameters<GetTaskById>) -> Result<CallToolResult, RmcpError> {
+    pub async fn get_task_by_id(
+        &self,
+        Parameters(GetTaskById { task_id }): Parameters<GetTaskById>,
+    ) -> Result<CallToolResult, RmcpError> {
         let client = Client::new(); // Create an HTTP client instance
         let get_task_by_id_url = format!("{}/tasks/{}", self.base_url, task_id);
         let response = client.get(get_task_by_id_url).send().await;
         let task: Task = response.unwrap().json().await.unwrap();
         let selected_task = as_content_string(vec![task]);
         Ok(CallToolResult::success(selected_task))
+    }
+
+    #[tool(
+        name = "Create Task",
+        description = "Creates a new user task. Requires a title. If no description is provided, one will be auto-generated from the title. If due_date or schedule contains natural date terms like 'today', 'tomorrow', or specific times, they will be parsed and used appropriately."
+    )]
+    pub async fn create_user_task(
+        &self,
+        Parameters(CreateUserTask {
+            name,
+            description,
+            due_date,
+            status,
+            schedule,
+        }): Parameters<CreateUserTask>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let create_task_url = format!("{}/tasks", self.base_url);
+        let user_new_task = CreateUserTask {
+            name,
+            description,
+            status,
+            schedule,
+            due_date,
+        };
+        let response = client
+            .post(create_task_url)
+            .json(&user_new_task)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+
+        get_content_from_response(response, "Error creating user task".to_string()).await
+    }
+
+    #[tool(
+        name = "Update Task",
+        description = "Updates an existing user task by id. Can update the title, description, due date, status, or schedule using task ID. If ID is not provided, task can be searched using title or status. Can also be used to bulk update tasks (e.g., mark all pending tasks as completed) when combined with filtering tools."
+    )]
+    pub async fn update_user_task(
+        &self,
+        Parameters(UpdateUserTask { task_id, user_task }): Parameters<UpdateUserTask>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let update_task_url = format!("{}/tasks/{}", self.base_url, task_id);
+        let response = client
+            .put(update_task_url)
+            .json(&user_task)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+
+        get_content_from_response(response, "Error updating user task".to_string()).await
+    }
+
+    #[tool(
+        name = "Delete Task",
+        description = "Deletes a user task. Typically uses the task ID, but if only a title, date, or status is given, it will first search for the most relevant matching task and delete it."
+    )]
+    pub async fn delete_user_task(
+        &self,
+        Parameters(GetTaskById { task_id }): Parameters<GetTaskById>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let delete_task_url = format!("{}/tasks/{}", self.base_url, task_id);
+        let response = client
+            .delete(delete_task_url)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+        get_content_from_response(response, "Error deleting user task".to_string()).await
     }
 }
 

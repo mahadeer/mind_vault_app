@@ -1,4 +1,33 @@
+use reqwest::Response;
+use rmcp::ErrorData as RmcpError;
+use rmcp::model::CallToolResult;
 use rmcp::model::Content;
+use shared::models::task_model::Task;
+
+pub async fn get_content_from_response(
+    response: Response,
+    error_message: String,
+) -> Result<CallToolResult, RmcpError> {
+    if response.status().is_success() {
+        let updated_task: Task = response
+            .json()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+        Ok(CallToolResult::success(as_content_string(vec![
+            updated_task,
+        ])))
+    } else {
+        let error_msg = response
+            .text()
+            .await
+            .unwrap_or_else(|_| error_message.clone());
+        Ok(CallToolResult::error(vec![Content::text(format!(
+            "Failed to {}: {}",
+            error_message,
+            error_msg
+        ))]))
+    }
+}
 
 pub fn as_content_list_string<T>(items: Vec<T>) -> Vec<Content>
 where
