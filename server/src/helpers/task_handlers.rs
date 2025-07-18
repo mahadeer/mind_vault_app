@@ -1,4 +1,5 @@
 use crate::services::task_service::TaskService;
+use axum::extract::Query;
 use axum::{
     Json,
     extract::{Path, State},
@@ -6,9 +7,9 @@ use axum::{
     response::IntoResponse,
 };
 use shared::models::task_model::{CreateTaskRequest, UpdateTaskRequest};
+use std::collections::HashMap;
 use std::sync::Arc;
 use tracing::{debug, error, info};
-
 
 // Route Handlers
 pub async fn create_task_handler(
@@ -17,7 +18,10 @@ pub async fn create_task_handler(
 ) -> impl IntoResponse {
     match task_service.create_task(new_task_request).await {
         Ok(created_task) => {
-            info!("Task created successfully with ID: {}", created_task.id.clone());
+            info!(
+                "Task created successfully with ID: {}",
+                created_task.id.clone()
+            );
             (StatusCode::CREATED, Json(created_task)).into_response()
         }
         Err(e) => {
@@ -110,4 +114,45 @@ pub async fn delete_task_by_id_handler(
             ))
         }
     }
+}
+
+pub async fn delete_all_tasks_handler(
+    State(task_service): State<Arc<TaskService>>,
+) -> impl IntoResponse {
+    info!("Deleting all tasks");
+    match task_service.delete_all_tasks().await {
+        Ok(result) => {
+            info!("Tasks successfully deleted");
+            Ok((StatusCode::ACCEPTED, result).into_response())
+        }
+        Err(e) => {
+            error!("Unable to delete all tasks: {:?}", e);
+            Err((
+                StatusCode::NOT_FOUND,
+                Json(format!("Unable to delete all tasks: {:?}", e)),
+            ))
+        }
+    }
+}
+
+pub async fn get_tasks_by_text_handler(
+    State(task_service): State<Arc<TaskService>>,
+    Query(params): Query<HashMap<String, String>>,
+) -> impl IntoResponse {
+    info!("Getting tasks matching text");
+}
+
+pub async fn update_tasks_by_text_handler(
+    State(task_service): State<Arc<TaskService>>,
+    Query(params): Query<HashMap<String, String>>,
+    Json(updated_task): Json<UpdateTaskRequest>,
+) -> impl IntoResponse {
+    info!("Updating tasks matching text");
+}
+
+pub async fn delete_tasks_by_text_handler(
+    State(task_service): State<Arc<TaskService>>,
+    Query(params): Query<HashMap<String, String>>,
+) -> impl IntoResponse {
+    info!("Deleting tasks matching text");
 }

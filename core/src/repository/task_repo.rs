@@ -81,4 +81,14 @@ impl TaskRepo {
             }
         }
     }
+
+    pub async fn delete_all(&self) -> Result<String, DbError> {
+        match self.tasks_collection.drop().await {
+            Ok(_) => Ok("All Tasks deleted".to_string()),
+            Err(e) => {
+                error!("Error dropping collection: {}", e);
+                Ok("Error dropping collection".to_string())
+            }
+        }
+    }
 }

@@ -54,4 +54,11 @@ impl TaskService {
             Err(e) => Err(ErrorResponse::from(format!("Error deleting tasks, {:?}", e))),
         }
     }
+    
+    pub(crate) async fn delete_all_tasks(&self) -> Result<String, ErrorResponse> {
+        match self.task_repo.delete_all().await {
+            Ok(result) => Ok(result),
+            Err(e) => Err(ErrorResponse::from(format!("Error deleting all tasks: {}", e))),
+        }
+    }
 }
