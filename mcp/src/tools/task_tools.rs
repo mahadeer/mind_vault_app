@@ -1,6 +1,8 @@
-use crate::models::{CreateUserTask, GetTaskById, UpdateUserTask};
-use crate::utils::{as_content_list_string, as_content_string, get_content_from_response};
-use reqwest::{Client};
+use crate::models::{
+    CreateUserTask, GetTaskById, SearchRequest, UpdateSearchRequest, UpdateUserTask,
+};
+use crate::utils::{as_content_string, get_content_from_response_task, get_content_from_tasks};
+use reqwest::Client;
 use rmcp::ErrorData as RmcpError;
 use rmcp::handler::server::tool::{Parameters, ToolRouter};
 use rmcp::model::{
@@ -33,12 +35,7 @@ impl TaskTool {
         let get_all_tasks_url = format!("{}/tasks", self.base_url);
         let response = client.get(get_all_tasks_url).send().await;
         let tasks: Vec<Task> = response.unwrap().json().await.unwrap();
-        if tasks.is_empty() {
-            let no_tasks = as_content_list_string(vec!["Task not found".to_string()]);
-            Ok(CallToolResult::success(no_tasks))
-        } else {
-            Ok(CallToolResult::success(as_content_string(tasks)))
-        }
+        get_content_from_tasks(tasks).await
     }
 
     #[tool(
@@ -87,7 +84,7 @@ impl TaskTool {
             .await
             .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
 
-        get_content_from_response(response, "Error creating user task".to_string()).await
+        get_content_from_response_task(response, "Error creating user task".to_string()).await
     }
 
     #[tool(
@@ -107,7 +104,7 @@ impl TaskTool {
             .await
             .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
 
-        get_content_from_response(response, "Error updating user task".to_string()).await
+        get_content_from_response_task(response, "Error updating user task".to_string()).await
     }
 
     #[tool(
@@ -125,7 +122,68 @@ impl TaskTool {
             .send()
             .await
             .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
-        get_content_from_response(response, "Error deleting user task".to_string()).await
+        get_content_from_response_task(response, "Error deleting user task".to_string()).await
+    }
+
+    #[tool(
+        name = "Search in Tasks",
+        description = "Retrieves a list of tasks filtering by a search term present in either the task's name or its description."
+    )]
+    pub async fn search_tasks(
+        &self,
+        Parameters(SearchRequest { search_term }): Parameters<SearchRequest>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let search_task_url = format!("{}/tasks/search?search_term={}", self.base_url, search_term);
+        let response = client
+            .get(search_task_url)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+        let tasks: Vec<Task> = response.json().await.unwrap();
+        get_content_from_tasks(tasks).await
+    }
+
+    #[tool(
+        name = "Update Tasks by search text",
+        description = "Retrieves a list of tasks by search term present in either the task's name or its description. and update existing user tasks matching the search term"
+    )]
+    pub async fn update_by_search_tasks(
+        &self,
+        Parameters(UpdateSearchRequest {
+            search_term,
+            user_task,
+        }): Parameters<UpdateSearchRequest>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let search_task_url = format!("{}/tasks/search?search_term={}", self.base_url, search_term);
+        let response = client
+            .post(search_task_url)
+            .json(&user_task)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+        let tasks: Vec<Task> = response.json().await.unwrap();
+        get_content_from_tasks(tasks).await
+    }
+
+    #[tool(
+        name = "Delete Tasks by search text",
+        description = "Retrieves a list of tasks by a search term present in either the task's name or its description. and delete the existing user tasks"
+    )]
+    pub async fn delete_by_search_tasks(
+        &self,
+        Parameters(SearchRequest { search_term }): Parameters<SearchRequest>,
+    ) -> Result<CallToolResult, RmcpError> {
+        let client = Client::new();
+        let search_task_url = format!("{}/tasks/search?search_term={}", self.base_url, search_term);
+        let response = client
+            .delete(search_task_url)
+            .send()
+            .await
+            .map_err(|e| RmcpError::internal_error(e.to_string(), None))?;
+        let tasks: Vec<Task> = response.json().await.unwrap();
+        get_content_from_tasks(tasks).await
     }
 }
 

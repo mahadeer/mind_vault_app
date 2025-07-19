@@ -51,14 +51,53 @@ impl TaskService {
     pub(crate) async fn delete_task_by_id(&self, task_id: i64) -> Result<String, ErrorResponse> {
         match self.task_repo.delete_by_id(task_id).await {
             Ok(result) => Ok(result),
-            Err(e) => Err(ErrorResponse::from(format!("Error deleting tasks, {:?}", e))),
+            Err(e) => Err(ErrorResponse::from(format!(
+                "Error deleting tasks, {:?}",
+                e
+            ))),
         }
     }
-    
+
     pub(crate) async fn delete_all_tasks(&self) -> Result<String, ErrorResponse> {
         match self.task_repo.delete_all().await {
             Ok(result) => Ok(result),
-            Err(e) => Err(ErrorResponse::from(format!("Error deleting all tasks: {}", e))),
+            Err(e) => Err(ErrorResponse::from(format!(
+                "Error deleting all tasks: {}",
+                e
+            ))),
+        }
+    }
+
+    pub(crate) async fn get_tasks_by_text(
+        &self,
+        search_text: &str,
+    ) -> Result<Vec<Task>, ErrorResponse> {
+        match self.task_repo.search_in_tasks(search_text).await {
+            Ok(tasks) => Ok(tasks),
+            Err(e) => Err(ErrorResponse::from(format!("Error searching tasks: {}", e))),
+        }
+    }
+
+    pub(crate) async fn search_and_update(
+        &self,
+        search_term: &str,
+        updated_task: UpdateTaskRequest,
+    ) -> Result<Vec<Task>, ErrorResponse> {
+        match self.task_repo.search_and_update_in_tasks(search_term, updated_task).await { 
+            Ok(tasks) => Ok(tasks),
+            Err(e) => {
+                Err(ErrorResponse::from(format!("Error updating tasks: {}", e)))
+            },
+        }
+    }
+    
+    pub(crate) async fn search_and_delete(
+        &self,
+        search_term: &str,
+    ) -> Result<String, ErrorResponse> {
+        match self.task_repo.delete_by_search_text(search_term).await { 
+            Ok(result) => Ok(result),
+            Err(e) => Err(ErrorResponse::from(format!("Error deleting tasks: {}", e))),
         }
     }
 }

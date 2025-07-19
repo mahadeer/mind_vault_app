@@ -7,6 +7,17 @@ pub struct GetTaskById {
     pub task_id: String,
 }
 
+#[derive(Deserialize, JsonSchema)]
+pub struct SearchRequest {
+    pub search_term: String,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct UpdateSearchRequest {
+    pub search_term: String,
+    pub user_task: CreateUserTask,
+}
+
 #[derive(Deserialize, JsonSchema, Serialize)]
 pub struct CreateUserTask {
     pub name: String,

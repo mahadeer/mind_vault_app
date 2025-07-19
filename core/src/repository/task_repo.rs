@@ -1,9 +1,9 @@
-use futures_util::TryStreamExt;
-use mongodb::bson::{doc, Bson};
-use mongodb::Collection;
-use tracing::error;
-use shared::models::task_model::{CreateTaskRequest, Task, UpdateTaskRequest};
 use crate::models::{AppDatabase, DbError};
+use futures_util::TryStreamExt;
+use mongodb::Collection;
+use mongodb::bson::{Bson, doc};
+use shared::models::task_model::{CreateTaskRequest, Task, UpdateTaskRequest};
+use tracing::{error, info};
 
 #[derive(Debug, Clone)]
 pub struct TaskRepo {
@@ -27,15 +27,21 @@ impl TaskRepo {
         let new_task = Task {
             id: (total_docs.unwrap() + 1) as i64,
             name: created_task.name,
-            status: created_task.status.unwrap_or("in_progress".parse().unwrap()),
+            status: created_task
+                .status
+                .unwrap_or("in_progress".parse().unwrap()),
             schedule: created_task.schedule,
             due_date: created_task.due_date,
-            description: created_task.description
+            description: created_task.description,
         };
         let created_task = self.tasks_collection.insert_one(new_task).await;
         let inserted_id = created_task.unwrap().inserted_id;
         let inserted_task_id = doc! { "_id": inserted_id };
-        let created_task = self.tasks_collection.find_one(inserted_task_id).await.unwrap();
+        let created_task = self
+            .tasks_collection
+            .find_one(inserted_task_id)
+            .await
+            .unwrap();
         created_task.unwrap()
     }
 
@@ -52,11 +58,21 @@ impl TaskRepo {
         let mut set_fields = doc! {};
 
         // Populate set_fields as you do in your current update_task
-        if let Some(name) = updated_task.name { set_fields.insert("name", Bson::String(name)); }
-        if let Some(description) = updated_task.description { set_fields.insert("description", Bson::String(description)); }
-        if let Some(status) = updated_task.status { set_fields.insert("status", Bson::String(status)); }
-        if let Some(due_date) = updated_task.due_date { set_fields.insert("due_date", Bson::String(due_date)); }
-        if let Some(schedule) = updated_task.schedule { set_fields.insert("schedule", Bson::String(schedule)); }
+        if let Some(name) = updated_task.name {
+            set_fields.insert("name", Bson::String(name));
+        }
+        if let Some(description) = updated_task.description {
+            set_fields.insert("description", Bson::String(description));
+        }
+        if let Some(status) = updated_task.status {
+            set_fields.insert("status", Bson::String(status));
+        }
+        if let Some(due_date) = updated_task.due_date {
+            set_fields.insert("due_date", Bson::String(due_date));
+        }
+        if let Some(schedule) = updated_task.schedule {
+            set_fields.insert("schedule", Bson::String(schedule));
+        }
 
         if !set_fields.is_empty() {
             update_doc.insert("$set", set_fields);
@@ -64,11 +80,12 @@ impl TaskRepo {
             return self.find_by_id(task_id).await;
         }
 
-        let updated_task = self.tasks_collection
+        let updated_task = self
+            .tasks_collection
             .find_one_and_update(filter, update_doc)
-            .await.unwrap();
+            .await
+            .unwrap();
         updated_task.unwrap()
-
     }
 
     pub async fn delete_by_id(&self, task_id: i64) -> Result<String, DbError> {
@@ -90,5 +107,57 @@ impl TaskRepo {
                 Ok("Error dropping collection".to_string())
             }
         }
+    }
+
+    pub async fn search_in_tasks(&self, search_term: &str) -> Result<Vec<Task>, DbError> {
+        let regex_pattern = Bson::RegularExpression(mongodb::bson::Regex {
+            pattern: search_term.to_string(),
+            options: "i".to_string(),
+        });
+        let query = doc! {
+            "$or": [
+                { "name": { "$regex": &regex_pattern } },
+                { "description": { "$regex": &regex_pattern } },
+            ]
+        };
+        info!("Search Term: {:?}", search_term);
+        let cursor = self.tasks_collection.find(query).await?;
+        let tasks = cursor.try_collect().await?;
+        info!("{:?}", tasks);
+        Ok(tasks)
+    }
+
+    pub async fn search_and_update_in_tasks(&self, search_term: &str, updated_task: UpdateTaskRequest) -> Result<Vec<Task>, DbError> {
+        let regex_pattern = Bson::RegularExpression(mongodb::bson::Regex {
+            pattern: search_term.to_string(),
+            options: "i".to_string(),
+        });
+        let query = doc! {
+            "$or": [
+                { "name": { "$regex": &regex_pattern } },
+                { "description": { "$regex": &regex_pattern } },
+            ]
+        };
+        let cursor = self.tasks_collection.find(query).await?;
+        let tasks: Vec<Task> = cursor.try_collect().await?;
+        for task in tasks.clone().into_iter() {
+            self.update_by_id(task.id, updated_task.clone()).await;
+        }
+        Ok(tasks)
+    }
+
+    pub async fn delete_by_search_text(&self, search_term: &str) -> Result<String, DbError> {
+        let regex_pattern = Bson::RegularExpression(mongodb::bson::Regex {
+            pattern: search_term.to_string(),
+            options: "i".to_string(),
+        });
+        let query = doc! {
+            "$or": [
+                { "name": { "$regex": &regex_pattern } },
+                { "description": { "$regex": &regex_pattern } },
+            ]
+        };
+        let cursor = self.tasks_collection.delete_many(query).await?;
+        Ok(format!("Tasks deleted: {}", cursor.deleted_count))
     }
 }

@@ -20,7 +20,7 @@ pub struct CreateTaskRequest {
     pub schedule: Option<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UpdateTaskRequest {
     pub name: Option<String>,
     pub description: Option<String>,

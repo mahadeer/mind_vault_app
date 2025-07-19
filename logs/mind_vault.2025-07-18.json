@@ -1,72 +1,42 @@
-{"timestamp":"2025-07-18T00:23:02.896850Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:23:02.896895Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:23:02.899439Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:23:02.899463Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:23:02.900966Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:23:23.119109Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T00:26:37.134744Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:26:37.134761Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:26:37.135371Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:26:37.135375Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:26:37.136120Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:29:09.428552Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:29:09.428570Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:29:09.429257Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:29:09.429262Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:29:09.429827Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:39:03.577876Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:39:03.577893Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:39:03.578554Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:39:03.578560Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:39:03.579378Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:39:37.618411Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T00:40:18.574879Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:40:18.574899Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:40:18.575656Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:40:18.575662Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:40:18.576541Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:45:50.902239Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T00:45:50.902256Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T00:45:50.902866Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T00:45:50.902868Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T00:45:50.903551Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T00:46:39.490516Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T00:48:18.918000Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T00:49:06.748377Z","level":"INFO","message":"Fetching task with ID: 7","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T10:47:27.062008Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
-{"timestamp":"2025-07-18T10:47:27.062038Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
-{"timestamp":"2025-07-18T10:47:27.063161Z","level":"INFO","message":"Connected to the database","target":"core::db"}
-{"timestamp":"2025-07-18T10:47:27.063171Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
-{"timestamp":"2025-07-18T10:47:27.065032Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
-{"timestamp":"2025-07-18T10:51:25.602118Z","level":"INFO","message":"Task created successfully with ID: 21","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T10:51:27.615094Z","level":"INFO","message":"Task created successfully with ID: 22","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T10:51:29.262351Z","level":"INFO","message":"Task created successfully with ID: 23","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T10:51:45.248792Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:23:59.433255Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:24:01.016676Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:24:02.288698Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:30:29.970686Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:30:35.503888Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:30:39.194028Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:31:51.653588Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:31:53.413646Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:31:54.752390Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:41:17.977259Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:43:57.475979Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:48:07.164163Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:48:10.628037Z","level":"INFO","message":"Task created successfully with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:50:42.254258Z","level":"INFO","message":"Task created successfully with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:50:45.788854Z","level":"INFO","message":"Task created successfully with ID: 4","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:52:50.202043Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:46.071275Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:54.758922Z","level":"INFO","message":"Task deleted with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:54.763827Z","level":"INFO","message":"Task successfully deleted with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:56.042069Z","level":"INFO","message":"Task deleted with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:56.043324Z","level":"INFO","message":"Task successfully deleted with ID: 2","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:58.035145Z","level":"INFO","message":"Task deleted with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:58.036756Z","level":"INFO","message":"Task successfully deleted with ID: 3","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:59.103373Z","level":"INFO","message":"Task deleted with ID: 4","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:55:59.107314Z","level":"INFO","message":"Task successfully deleted with ID: 4","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:56:14.435400Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:58:37.538276Z","level":"INFO","message":"Task created successfully with ID: 1","target":"server::helpers::task_handlers"}
-{"timestamp":"2025-07-18T11:59:06.360205Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:38:33.598789Z","level":"INFO","message":"Fetching all tasks","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:39:50.759105Z","level":"INFO","message":"--- Starting MindVault Service ---","target":"server"}
+{"timestamp":"2025-07-18T23:39:50.759151Z","level":"INFO","message":"Attempting to connect to the database...","target":"core::db"}
+{"timestamp":"2025-07-18T23:39:50.760170Z","level":"INFO","message":"Connected to the database","target":"core::db"}
+{"timestamp":"2025-07-18T23:39:50.760179Z","level":"INFO","message":"Database schema initialized successfully.","target":"core::db"}
+{"timestamp":"2025-07-18T23:39:50.760901Z","level":"INFO","message":"Listening on 0.0.0.0:4500","target":"server"}
+{"timestamp":"2025-07-18T23:42:58.005249Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:42:58.005332Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:42:58.074267Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:45:09.875901Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:45:09.876025Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:45:09.906139Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:46:22.916720Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:46:22.916811Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:46:22.934185Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:53:58.509813Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:53:58.510719Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:53:58.551796Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:54:46.802902Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:54:46.802941Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:54:46.809061Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:55:20.921139Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:55:20.921777Z","level":"INFO","message":"Search Term: \"term\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:55:20.935663Z","level":"INFO","message":"[Task { id: 31, name: \"Analysis situation term miss leader\", description: \"Article look husband rather make travel\", status: \"on_hold\", due_date: Some(\"2025-07-21\"), schedule: Some(\"tomorrow\") }, Task { id: 39, name: \"Evening product\", description: \"Parent increase democratic mention generation book question or money final determine worker\", status: \"completed\", due_date: Some(\"2025-07-20\"), schedule: None }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:56:07.976654Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:56:07.976704Z","level":"INFO","message":"Search Term: \"science\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:56:07.978128Z","level":"INFO","message":"[Task { id: 1, name: \"Perform participant science way debate\", description: \"Enough ball dream necessary choose impact ready like\", status: \"pending\", due_date: Some(\"2025-07-19\"), schedule: Some(\"every day\") }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:56:23.820950Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:56:23.821036Z","level":"INFO","message":"Search Term: \"explain\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:56:23.828897Z","level":"INFO","message":"[Task { id: 2, name: \"Explain executive teacher\", description: \"Reach under skin person product value\", status: \"pending\", due_date: Some(\"2025-08-07\"), schedule: None }, Task { id: 6, name: \"Four prove tax form\", description: \"Explain war spend nearly lawyer fire follow wife identify method write price\", status: \"completed\", due_date: Some(\"2025-08-13\"), schedule: Some(\"every 1st of the month\") }, Task { id: 7, name: \"Including could gun series\", description: \"Kind appear environment capital explain thing machine ahead picture son report financial add impact\", status: \"pending\", due_date: Some(\"2025-07-28\"), schedule: None }, Task { id: 18, name: \"Discussion point least\", description: \"Together let explain national available war\", status: \"completed\", due_date: Some(\"2025-08-15\"), schedule: Some(\"every 1st of the month\") }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:11.259695Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:57:11.259743Z","level":"INFO","message":"Search Term: \"tax\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:11.263818Z","level":"INFO","message":"[Task { id: 6, name: \"Four prove tax form\", description: \"Explain war spend nearly lawyer fire follow wife identify method write price\", status: \"completed\", due_date: Some(\"2025-08-13\"), schedule: Some(\"every 1st of the month\") }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:26.540398Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:57:26.540430Z","level":"INFO","message":"Search Term: \"explainax\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:26.542320Z","level":"INFO","message":"[]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:30.071555Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:57:30.071599Z","level":"INFO","message":"Search Term: \"tax\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:30.077014Z","level":"INFO","message":"[Task { id: 6, name: \"Four prove tax form\", description: \"Explain war spend nearly lawyer fire follow wife identify method write price\", status: \"completed\", due_date: Some(\"2025-08-13\"), schedule: Some(\"every 1st of the month\") }]","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:58.401662Z","level":"INFO","message":"Getting tasks matching text","target":"server::helpers::task_handlers"}
+{"timestamp":"2025-07-18T23:57:58.401716Z","level":"INFO","message":"Search Term: \"ball\"","target":"core::repository::task_repo"}
+{"timestamp":"2025-07-18T23:57:58.405666Z","level":"INFO","message":"[Task { id: 1, name: \"Perform participant science way debate\", description: \"Enough ball dream necessary choose impact ready like\", status: \"pending\", due_date: Some(\"2025-07-19\"), schedule: Some(\"every day\") }, Task { id: 4, name: \"Matter management ball\", description: \"Threat same page ago director purpose\", status: \"completed\", due_date: Some(\"2025-08-14\"), schedule: Some(\"every Saturday at 6pm\") }]","target":"core::repository::task_repo"}

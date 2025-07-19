@@ -140,6 +140,16 @@ pub async fn get_tasks_by_text_handler(
     Query(params): Query<HashMap<String, String>>,
 ) -> impl IntoResponse {
     info!("Getting tasks matching text");
+    let search_term = params.get("search_term").unwrap().as_str();
+    match task_service.get_tasks_by_text(search_term).await {
+        Ok(tasks) => {
+            Json(tasks).into_response()
+        }
+        Err(e) => {
+            error!("Failed to get tasks: {:?}", e);
+            (StatusCode::INTERNAL_SERVER_ERROR, Json("Failed to get tasks".to_string())).into_response()
+        }
+    }
 }
 
 pub async fn update_tasks_by_text_handler(
@@ -148,6 +158,16 @@ pub async fn update_tasks_by_text_handler(
     Json(updated_task): Json<UpdateTaskRequest>,
 ) -> impl IntoResponse {
     info!("Updating tasks matching text");
+    let search_term = params.get("search_term").unwrap().as_str();
+    match task_service.search_and_update(search_term, updated_task).await { 
+        Ok(tasks) => {
+            Json(tasks).into_response()
+        }
+        Err(e) => {
+            error!("Failed to update tasks: {:?}", e);
+            (StatusCode::INTERNAL_SERVER_ERROR, Json("Failed to get tasks".to_string())).into_response()
+        }
+    }
 }
 
 pub async fn delete_tasks_by_text_handler(
@@ -155,4 +175,18 @@ pub async fn delete_tasks_by_text_handler(
     Query(params): Query<HashMap<String, String>>,
 ) -> impl IntoResponse {
     info!("Deleting tasks matching text");
+    let search_term = params.get("search_term").unwrap().as_str();
+    match task_service.search_and_delete(search_term).await {
+        Ok(result) => {
+            info!("Tasks successfully deleted");
+            Ok((StatusCode::ACCEPTED, result).into_response())
+        }
+        Err(e) => {
+            error!("Unable to delete all tasks: {:?}", e);
+            Err((
+                StatusCode::NOT_FOUND,
+                Json(format!("Unable to delete all tasks: {:?}", e)),
+            ))
+        }
+    }
 }
