@@ -1,0 +1,245 @@
+<svg id="generated" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     class="flowchart" style="max-width: 711.78125px;height:190px;" viewBox="0 0 711.78125 184"
+     aria-roledescription="flowchart-v2">
+    <style>#generated{font-family:Arial;font-size:16px;fill:#333;}@keyframes
+        edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#generated
+        .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear
+        infinite;stroke-linecap:round;}#generated
+        .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear
+        infinite;stroke-linecap:round;}#generated .error-icon{fill:#552222;}#generated
+        .error-text{fill:#552222;stroke:#552222;}#generated .edge-thickness-normal{stroke-width:1px;}#generated
+        .edge-thickness-thick{stroke-width:3.5px;}#generated .edge-pattern-solid{stroke-dasharray:0;}#generated
+        .edge-thickness-invisible{stroke-width:0;fill:none;}#generated
+        .edge-pattern-dashed{stroke-dasharray:3;}#generated .edge-pattern-dotted{stroke-dasharray:2;}#generated
+        .marker{fill:#333333;stroke:#333333;}#generated .marker.cross{stroke:#333333;}#generated
+        svg{font-family:Arial;font-size:16px;}#generated p{margin:0;}#generated
+        .label{font-family:Arial;color:#333;}#generated .cluster-label text{fill:#333;}#generated .cluster-label
+        span{color:#333;}#generated .cluster-label span p{background-color:transparent;}#generated .label
+        text,#generated span{fill:#333;color:#333;}#generated .node rect,#generated .node circle,#generated .node
+        ellipse,#generated .node polygon,#generated .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#generated
+        .rough-node .label text,#generated .node .label text,#generated .image-shape .label,#generated .icon-shape
+        .label{text-anchor:middle;}#generated .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#generated
+        .rough-node .label,#generated .node .label,#generated .image-shape .label,#generated .icon-shape
+        .label{text-align:center;}#generated .node.clickable{cursor:pointer;}#generated .root .anchor
+        path{fill:#333333!important;stroke-width:0;stroke:#333333;}#generated .arrowheadPath{fill:#333333;}#generated
+        .edgePath .path{stroke:#333333;stroke-width:2.0px;}#generated
+        .flowchart-link{stroke:#333333;fill:none;}#generated .edgeLabel{background-color:rgba(232,232,232,
+        0.8);text-align:center;}#generated .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#generated .edgeLabel
+        rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#generated
+        .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#generated .cluster
+        rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#generated .cluster text{fill:#333;}#generated .cluster
+        span{color:#333;}#generated
+        div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Arial;font-size:12px;background:hsl(80,
+        100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#generated
+        .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#generated
+        rect.text{fill:none;stroke-width:0;}#generated .icon-shape,#generated
+        .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#generated .icon-shape p,#generated
+        .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#generated .icon-shape rect,#generated
+        .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#generated
+        .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#generated .node
+        .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#generated
+        :root{--mermaid-font-family:Arial;}#generated .Pine&gt;*{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#254336!important;fill:#27654A!important;color:#FFFFFF!important;}#generated
+        .Pine
+        span{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#254336!important;fill:#27654A!important;color:#FFFFFF!important;}#generated
+        .Pine tspan{fill:#FFFFFF!important;}#generated .Aqua&gt;*{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#46EDC8!important;fill:#DEFFF8!important;color:#378E7A!important;}#generated
+        .Aqua
+        span{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#46EDC8!important;fill:#DEFFF8!important;color:#378E7A!important;}#generated
+        .Aqua tspan{fill:#378E7A!important;}#generated .Sky&gt;*{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#374D7C!important;fill:#E2EBFF!important;color:#374D7C!important;}#generated
+        .Sky
+        span{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#374D7C!important;fill:#E2EBFF!important;color:#374D7C!important;}#generated
+        .Sky tspan{fill:#374D7C!important;}#generated .Ash&gt;*{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#999999!important;fill:#EEEEEE!important;color:#000000!important;}#generated
+        .Ash
+        span{stroke-width:1px!important;stroke-dasharray:none!important;stroke:#999999!important;fill:#EEEEEE!important;color:#000000!important;}#generated
+        .Ash tspan{fill:#000000!important;}
+    </style>
+    <g>
+        <marker id="generated_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="generated_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5"
+                refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="generated_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="generated_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1"
+                refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="generated_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12"
+                refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath"
+                  style="stroke-width: 2; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="generated_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1"
+                refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath"
+                  style="stroke-width: 2; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <g class="root">
+            <g class="clusters"/>
+            <g class="edgePaths">
+                <path d="M159.078,40L163.245,40C167.411,40,175.745,40,184.347,40.083C192.949,40.167,201.82,40.333,206.256,40.417L210.691,40.5"
+                      id="L_A_B_0"
+                      class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke:#FF6D00;fill:none;"/>
+                <path d="M358.293,40.5L362.562,40.417C366.831,40.333,375.368,40.167,388.414,44.667C401.46,49.167,419.013,58.333,427.79,62.917L436.567,67.5"
+                      id="L_B_C_0"
+                      class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke:#FF6D00;fill:none;"/>
+                <path d="M567.633,94.5L571.799,94.5C575.966,94.5,584.299,94.5,592.633,94.5C600.966,94.5,609.299,94.5,613.466,94.5L617.633,94.5"
+                      id="L_C_D_0"
+                      class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke:#FF6D00;fill:none;"/>
+                <path d="M358.906,149L363.073,149C367.24,149,375.573,149,388.516,144.417C401.46,139.833,419.013,130.667,427.79,126.083L436.567,121.5"
+                      id="L_E_C_0"
+                      class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke:#FF6D00;fill:none;"/>
+            </g>
+            <g class="edgeLabels">
+                <g class="edgeLabel">
+                    <g class="label" transform="translate(0, 0)">
+                        <foreignObject width="0" height="0">
+                            <div style="stroke: rgb(255, 109, 0); display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml" class="labelBkg">
+                                <span style=";stroke:#FF6D00;color:none" class="edgeLabel "></span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="edgeLabel">
+                    <g class="label" transform="translate(0, 0)">
+                        <foreignObject width="0" height="0">
+                            <div style="stroke: rgb(255, 109, 0); display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml" class="labelBkg">
+                                <span style=";stroke:#FF6D00;color:none" class="edgeLabel "></span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="edgeLabel">
+                    <g class="label" transform="translate(0, 0)">
+                        <foreignObject width="0" height="0">
+                            <div style="stroke: rgb(255, 109, 0); display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml" class="labelBkg">
+                                <span style=";stroke:#FF6D00;color:none" class="edgeLabel "></span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="edgeLabel">
+                    <g class="label" transform="translate(0, 0)">
+                        <foreignObject width="0" height="0">
+                            <div style="stroke: rgb(255, 109, 0); display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml" class="labelBkg">
+                                <span style=";stroke:#FF6D00;color:none" class="edgeLabel "></span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+            </g>
+            <g class="nodes">
+                <g class="node default Ash " id="flowchart-A-0" transform="translate(83.5390625, 40)">
+                    <g class="basic label-container">
+                        <path d="M-75.5390625 -15.599999999999998 L75.5390625 -15.599999999999998 L75.5390625 23.4 L-75.5390625 23.4 L-75.5390625 -23.4 L75.5390625 -23.4 L75.5390625 -15.599999999999998"
+                              stroke="none" stroke-width="0" fill="#EEEEEE" fill-rule="evenodd"
+                              style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#999999 !important;fill:#EEEEEE !important"/>
+                        <path d="M-75.5390625 -15.599999999999998 C-23.13181779158031 -15.599999999999998, 29.27542691683938 -15.599999999999998, 75.5390625 -15.599999999999998 M-75.5390625 -15.599999999999998 C-33.17811833530657 -15.599999999999998, 9.182825829386857 -15.599999999999998, 75.5390625 -15.599999999999998 M75.5390625 -15.599999999999998 C75.5390625 -7.291466436066877, 75.5390625 1.0170671278662446, 75.5390625 23.4 M75.5390625 -15.599999999999998 C75.5390625 -7.091915017608255, 75.5390625 1.4161699647834887, 75.5390625 23.4 M75.5390625 23.4 C31.77780924840605 23.4, -11.983444003187898 23.4, -75.5390625 23.4 M75.5390625 23.4 C41.651780899270484 23.4, 7.764499298540969 23.4, -75.5390625 23.4 M-75.5390625 23.4 C-75.5390625 9.649039640681025, -75.5390625 -4.101920718637949, -75.5390625 -23.4 M-75.5390625 23.4 C-75.5390625 6.550464774168361, -75.5390625 -10.299070451663276, -75.5390625 -23.4 M-75.5390625 -23.4 C-38.374709994236966 -23.4, -1.2103574884739317 -23.4, 75.5390625 -23.4 M-75.5390625 -23.4 C-40.0676690530079 -23.4, -4.596275606015794 -23.4, 75.5390625 -23.4 M75.5390625 -23.4 C75.5390625 -20.826894151517553, 75.5390625 -18.25378830303511, 75.5390625 -15.599999999999998 M75.5390625 -23.4 C75.5390625 -21.36756760586316, 75.5390625 -19.335135211726325, 75.5390625 -15.599999999999998 M75.5390625 -15.599999999999998 C29.28326876178481 -15.599999999999998, -16.97252497643038 -15.599999999999998, -75.5390625 -15.599999999999998 M75.5390625 -15.599999999999998 C16.08623971844272 -15.599999999999998, -43.36658306311456 -15.599999999999998, -75.5390625 -15.599999999999998"
+                              stroke="#999999" stroke-width="1" fill="none"
+                              style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#999999 !important;fill:#EEEEEE !important"/>
+                    </g>
+                    <g class="label" style="color:#000000 !important"
+                       transform="translate(-68.0390625, -8.099999999999998)">
+                        <rect/>
+                        <foreignObject width="136.078125" height="24">
+                            <div style="color: rgb(0, 0, 0) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml">
+                                <span style="color:#000000 !important" class="nodeLabel ">
+                                    <p>Claude / LM Studio</p>
+                                </span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="node default Sky " id="flowchart-B-1" transform="translate(283.9921875, 40)">
+                    <g class="basic label-container">
+                        <g>
+                            <path d="M-73.80078125 -22 C-73.80078125 -7.051851496848208, -73.80078125 7.896297006303584, -73.80078125 32 C-37.15504525660441 32, -0.5093092632088201 32, 63.80078125 32 C63.80078125 30.911139904625593, 63.80078125 29.82227980925118, 63.80078125 27 C65.73753579494522 27, 67.67429033989043 27, 68.80078125 27 C68.80078125 25.08414331206876, 68.80078125 23.16828662413752, 68.80078125 22 C69.96848298633962 22, 71.13618472267925 22, 73.80078125 22 C73.80078125 9.492730902451049, 73.80078125 -3.014538195097902, 73.80078125 -32 C45.561809422301046 -32, 17.322837594602092 -32, -63.80078125 -32 C-63.80078125 -30.863807267690667, -63.80078125 -29.727614535381335, -63.80078125 -27 C-65.19849409650884 -27, -66.59620694301769 -27, -68.80078125 -27 C-68.80078125 -25.79038095783593, -68.80078125 -24.580761915671857, -68.80078125 -22 C-70.67349608503518 -22, -72.54621092007035 -22, -73.80078125 -22"
+                                  stroke="none" stroke-width="0" fill="#E2EBFF"
+                                  style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#374D7C !important;fill:#E2EBFF !important"/>
+                            <path d="M-73.80078125 -22 C-73.80078125 -4.334210726100693, -73.80078125 13.331578547798614, -73.80078125 32 M-73.80078125 -22 C-73.80078125 -5.317147735065692, -73.80078125 11.365704529868616, -73.80078125 32 M-73.80078125 32 C-19.643972851807874 32, 34.51283554638425 32, 63.80078125 32 M-73.80078125 32 C-26.639493567685506 32, 20.52179411462899 32, 63.80078125 32 M63.80078125 32 C63.80078125 30.233261680293996, 63.80078125 28.466523360587992, 63.80078125 27 M63.80078125 32 C63.80078125 30.681346782897954, 63.80078125 29.36269356579591, 63.80078125 27 M63.80078125 27 C65.47633823459067 27, 67.15189521918134 27, 68.80078125 27 M63.80078125 27 C65.76432848980913 27, 67.72787572961825 27, 68.80078125 27 M68.80078125 27 C68.80078125 25.567909282587816, 68.80078125 24.135818565175637, 68.80078125 22 M68.80078125 27 C68.80078125 25.880441448976175, 68.80078125 24.76088289795235, 68.80078125 22 M68.80078125 22 C70.47498986822643 22, 72.14919848645286 22, 73.80078125 22 M68.80078125 22 C70.40710871743124 22, 72.01343618486248 22, 73.80078125 22 M73.80078125 22 C73.80078125 5.225554876686012, 73.80078125 -11.548890246627977, 73.80078125 -32 M73.80078125 22 C73.80078125 5.323026183133532, 73.80078125 -11.353947633732936, 73.80078125 -32 M73.80078125 -32 C26.535531160204144 -32, -20.729718929591712 -32, -63.80078125 -32 M73.80078125 -32 C45.28133946766885 -32, 16.7618976853377 -32, -63.80078125 -32 M-63.80078125 -32 C-63.80078125 -30.389007939757683, -63.80078125 -28.77801587951537, -63.80078125 -27 M-63.80078125 -32 C-63.80078125 -30.022401583261757, -63.80078125 -28.044803166523515, -63.80078125 -27 M-63.80078125 -27 C-65.22835252593514 -27, -66.65592380187029 -27, -68.80078125 -27 M-63.80078125 -27 C-64.8876770412035 -27, -65.97457283240699 -27, -68.80078125 -27 M-68.80078125 -27 C-68.80078125 -25.07578747963557, -68.80078125 -23.151574959271134, -68.80078125 -22 M-68.80078125 -27 C-68.80078125 -25.37151655789626, -68.80078125 -23.74303311579252, -68.80078125 -22 M-68.80078125 -22 C-70.19017938771108 -22, -71.57957752542218 -22, -73.80078125 -22 M-68.80078125 -22 C-70.50817858215429 -22, -72.21557591430856 -22, -73.80078125 -22"
+                                  stroke="#374D7C" stroke-width="1" fill="none"
+                                  style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#374D7C !important;fill:#E2EBFF !important"/>
+                        </g>
+                        <path d="M-68.80078125 -22 C-35.31253365188542 -22, -1.8242860537708339 -22, 63.80078125 -22 M-68.80078125 -22 C-39.07528881680433 -22, -9.34979638360867 -22, 63.80078125 -22 M63.80078125 -22 C63.80078125 -10.102965189305218, 63.80078125 1.7940696213895642, 63.80078125 27 M63.80078125 -22 C63.80078125 -7.879926908945622, 63.80078125 6.240146182108756, 63.80078125 27 M63.80078125 27 C65.74471816060918 27, 67.68865507121836 27, 68.80078125 27 M63.80078125 27 C65.27998082208279 27, 66.75918039416558 27, 68.80078125 27 M68.80078125 27 C68.80078125 13.576365210955874, 68.80078125 0.15273042191174824, 68.80078125 -27 M68.80078125 27 C68.80078125 7.291877234950711, 68.80078125 -12.416245530098578, 68.80078125 -27 M68.80078125 -27 C23.391623973715042 -27, -22.017533302569916 -27, -68.80078125 -27 M68.80078125 -27 C27.444933896145223 -27, -13.910913457709555 -27, -68.80078125 -27 M-68.80078125 -27 C-68.80078125 -25.95880136754432, -68.80078125 -24.917602735088643, -68.80078125 -22 M-68.80078125 -27 C-68.80078125 -25.10194944670099, -68.80078125 -23.203898893401977, -68.80078125 -22"
+                              stroke="#374D7C" stroke-width="1" fill="none"
+                              style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#374D7C !important;fill:#E2EBFF !important"/>
+                    </g>
+                    <g class="label" style="color:#374D7C !important" transform="translate(-58.80078125, -7)">
+                        <rect/>
+                        <foreignObject width="107.6015625" height="24">
+                            <div style="color: rgb(55, 77, 124) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml">
+                                <span style="color:#374D7C !important" class="nodeLabel ">
+                                    <p>mindvault_mcp</p>
+                                </span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="node default Aqua " id="flowchart-C-3" transform="translate(488.26953125, 94.5)">
+                    <rect class="basic label-container"
+                          style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#46EDC8 !important;fill:#DEFFF8 !important"
+                          x="-79.36328125" y="-27" width="158.7265625" height="54"/>
+                    <g class="label" style="color:#378E7A !important" transform="translate(-49.36328125, -12)">
+                        <rect/>
+                        <foreignObject width="98.7265625" height="24">
+                            <div style="color: rgb(55, 142, 122) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml">
+                                <span style="color:#378E7A !important" class="nodeLabel ">
+                                    <p>mindvault_api</p>
+                                </span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="node default Pine " id="flowchart-D-5" transform="translate(660.70703125, 94.5)">
+                    <path d="M0,10.1999851999852 a43.07421875,10.1999851999852 0,0,0 86.1484375,0 a43.07421875,10.1999851999852 0,0,0 -86.1484375,0 l0,49.1999851999852 a43.07421875,10.1999851999852 0,0,0 86.1484375,0 l0,-49.1999851999852"
+                          class="basic label-container"
+                          style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#254336 !important;fill:#27654A !important"
+                          label-offset-y="10.1999851999852" transform="translate(-43.07421875, -34.799977799977796)"/>
+                    <g class="label" style="color:#FFFFFF !important" transform="translate(-35.57421875, -2)">
+                        <rect/>
+                        <foreignObject width="71.1484375" height="24">
+                            <div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml">
+                                <span style="color:#FFFFFF !important" class="nodeLabel ">
+                                    <p>MongoDB</p>
+                                </span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+                <g class="node default Sky " id="flowchart-E-6" transform="translate(283.9921875, 149)">
+                    <rect class="basic label-container"
+                          style="stroke-width:1px !important;stroke-dasharray:none !important;stroke:#374D7C !important;fill:#E2EBFF !important"
+                          x="-74.9140625" y="-27" width="149.828125" height="54"/>
+                    <g class="label" style="color:#374D7C !important" transform="translate(-44.9140625, -12)">
+                        <rect/>
+                        <foreignObject width="89.828125" height="24">
+                            <div style="color: rgb(55, 77, 124) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"
+                                 xmlns="http://www.w3.org/1999/xhtml">
+                                <span style="color:#374D7C !important" class="nodeLabel ">
+                                    <p>mindvault_ui</p>
+                                </span>
+                            </div>
+                        </foreignObject>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+# Common build and version control directories
+.git
+.gitignore
+target
+.vscode
+.idea
+__pycache__
+.DS_Store
+.env
+logs
+
+# Specific files to exclude from the root layout if needed
+Cargo.lock
+docs

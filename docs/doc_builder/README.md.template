@@ -1,0 +1,64 @@
+
+-----
+
+# MindVault: Your Personal, Intelligent Knowledge Management System
+
+MindVault is a robust, local, and intelligent knowledge management system built with **Rust**. It's designed to help you organize and gain insights from your personal notes, tasks, reportee reviews, to-dos, and reminders. MindVault is composed of several integrated components to provide a comprehensive solution for managing your personal data and leveraging the power of Large Language Models (LLMs).
+
+-----
+
+{{@import architecture_overview.md}}
+
+![Architecture Diagram](docs/assets/diagram.svg)
+
+-----
+
+{{@import features.md}}
+
+-----
+
+{{@import getting_started.md}}
+
+-----
+
+{{@import how_to_run.md}}
+
+-----
+
+{{@import usage_examples.md}}
+
+-----
+
+{{@import tech_stack.md}}
+
+-----
+
+{{@import project_layout.md}}
+
+-----
+
+<div style="
+    background-color: #fff8dc; /* Cornsilk - a soft yellow */
+    border-left: 5px solid #ffc107; /* Amber yellow border */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+">
+    <p style="margin: 0; font-weight: bold; color: #333;">
+        💡 Note: <span style="font-weight: normal;">Doc generated using a custom doc_builder, refer to <code>docs\doc_builder</code></span>
+    </p>
+</div>
+
+
+## Contributing
+
+MindVault is currently designed for personal use. However, if you have suggestions or want to contribute, feel free to open an issue or submit a pull request\!
+
+-----
+
+## License
+
+This project is licensed under the MIT License—see the `LICENSE` file for details.
+
+-----

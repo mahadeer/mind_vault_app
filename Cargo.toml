@@ -3,6 +3,6 @@ members = [
     "core",
     "server",
     "mcp",
-    "shared", "core",
+    "shared", "core", "mindvault-api",
 ]
 resolver = "2"
