@@ -21,7 +21,7 @@
 - [ ] Receive and format comment history
 - [ ] Return markdown-style summary input back to Claude
 
-#### 3. `frontend`
+#### 3. `mindvault-ui`
 - [ ] Set up Dixous project
 - [ ] Build pages:
     - Comment input form

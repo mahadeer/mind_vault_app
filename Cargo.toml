@@ -1,8 +1,9 @@
 [workspace]
 members = [
-    "core",
-    "server",
-    "mcp",
-    "shared", "core", "mindvault-api",
+    "mindvault-api",
+    "mindvault-core",
+    "mindvault-mcp",
+    "mindvault-shared",
+    "mindvault-ui"
 ]
 resolver = "2"
