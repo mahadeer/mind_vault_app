@@ -4,13 +4,12 @@ use axum::Router;
 use axum::routing::get;
 use tokio::net::TcpListener;
 use tracing::info;
-use chrono::Utc;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("--- Starting MindVault Service ---");
 
-    let server_up_since = Utc::now().format("%d/%m/%y %H:%M").to_string().to_string();
+    let server_up_since = chrono::Local::now().format("%d/%m/%y %H:%M %Z").to_string().to_string();
     let mind_vault_router = Router::new()
         .route("/", get(root_handler).with_state(server_up_since));
 
@@ -23,6 +22,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 async fn root_handler(State(server_up_since): State<String>) -> Html<String> {
-    let resp = format!("App is running! Since <b>{} UTC</b>", server_up_since);
+    let current_time = chrono::Local::now().format("%d/%m/%y %H:%M %Z").to_string();
+    let resp = format!(r#"
+        App is running!
+        <p>Since <b>{}</b><p>
+        <p>Now <b>{}</b></p>
+    "#, server_up_since, current_time);
     Html(resp)
 }
