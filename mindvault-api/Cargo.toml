@@ -9,4 +9,4 @@ tokio = { version = "1.46.1", features = ["full"] } # For asynchronous operation
 tracing = "0.1.41"
 mindvault-core = { path = "../mindvault-core" }
 mindvault-shared = { path = "../mindvault-shared" }
-chrono = "0.4.41"
+chrono = { version = "0.4.41", features = ["serde"] }
