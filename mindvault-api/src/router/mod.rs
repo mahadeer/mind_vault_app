@@ -23,11 +23,11 @@ impl MindVaultRouter {
             .to_string();
         let router = Router::new()
             .route("/", get(root_handler).with_state(server_up_since))
-            .nest("/tasks", self.get_task_router());
+            .nest("/tasks", self.get_task_routes());
         router
     }
 
-    fn get_task_router(&self) -> Router {
+    fn get_task_routes(&self) -> Router {
         let task_router = TaskRouter::new(self.db_client.clone());
         task_router.get_routes()
     }

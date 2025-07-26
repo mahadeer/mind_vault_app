@@ -200,6 +200,7 @@ dependencies = [
  "ahash",
  "base64 0.22.1",
  "bitvec",
+ "chrono",
  "getrandom 0.2.16",
  "getrandom 0.3.3",
  "hex",
@@ -1108,6 +1109,8 @@ dependencies = [
 name = "mindvault-core"
 version = "0.1.0"
 dependencies = [
+ "bson",
+ "chrono",
  "futures-util",
  "mindvault-shared",
  "mongodb",
@@ -1124,6 +1127,7 @@ version = "0.1.0"
 name = "mindvault-shared"
 version = "0.1.0"
 dependencies = [
+ "bson",
  "chrono",
  "serde",
  "tracing",
