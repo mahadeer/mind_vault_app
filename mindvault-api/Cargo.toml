@@ -10,3 +10,4 @@ tracing = "0.1.41"
 mindvault-core = { path = "../mindvault-core" }
 mindvault-shared = { path = "../mindvault-shared" }
 chrono = { version = "0.4.41", features = ["serde"] }
+bson = { version = "2.6", features = ["chrono-0_4"] }

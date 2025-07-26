@@ -12,3 +12,13 @@ pub struct TaskSearchParams {
     #[serde(default, deserialize_with = "deserialize_multiple_formats")]
     pub due_date: Option<NaiveDate>,
 }
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CreateTaskRequest {
+    pub name: String,
+    #[serde(default, deserialize_with = "deserialize_multiple_formats")]
+    pub due_date: Option<NaiveDate>,
+    pub priority: Option<ETaskPriority>,
+    pub status: Option<ETaskStatus>,
+}

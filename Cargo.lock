@@ -1098,6 +1098,7 @@ name = "mindvault-api"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "bson",
  "chrono",
  "mindvault-core",
  "mindvault-shared",
@@ -1114,7 +1115,6 @@ dependencies = [
  "futures-util",
  "mindvault-shared",
  "mongodb",
- "serde",
  "thiserror 2.0.12",
  "tracing",
 ]

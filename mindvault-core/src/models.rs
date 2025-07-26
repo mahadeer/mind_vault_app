@@ -1,8 +1,10 @@
+use bson::Document;
 use mongodb::{bson, Collection, Database};
 use thiserror::Error;
 
 pub type AppDatabase = Database;
 pub type DbCollection<T> = Collection<T>;
+pub type DbDocument = Document;
 
 #[derive(Debug, Error)]
 pub enum DbError {
