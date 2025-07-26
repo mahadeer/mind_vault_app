@@ -1,7 +1,9 @@
 use axum::response::ErrorResponse;
-use mindvault_core::models::{AppDatabase};
+use mindvault_core::models::AppDatabase;
 use mindvault_core::repository::task_repo::TaskRepository;
-use mindvault_shared::dtos::task_dtos::{CreateTaskRequest, TaskSearchParams};
+use mindvault_shared::dtos::task_dtos::{
+    BulkCreateTaskRequest, CreateTaskRequest, TaskSearchParams,
+};
 use mindvault_shared::models::tasks_model::TaskResponse;
 use tracing::error;
 
@@ -12,9 +14,7 @@ pub(crate) struct TaskService {
 impl TaskService {
     pub(crate) fn new(app_database: AppDatabase) -> Self {
         let task_repository = TaskRepository::new(app_database.clone());
-        Self {
-            task_repository,
-        }
+        Self { task_repository }
     }
 
     pub(crate) async fn create_task(
@@ -26,6 +26,21 @@ impl TaskService {
             Ok(task) => Ok(TaskResponse::from(task)),
             Err(e) => {
                 let error_message = format!("Error creating task: {:?}", e);
+                error!("{}", error_message);
+                Err(ErrorResponse::from(error_message))
+            }
+        }
+    }
+
+    pub(crate) async fn bulk_create_tasks(
+        &self,
+        bulk_request: BulkCreateTaskRequest,
+    ) -> Result<Vec<TaskResponse>, ErrorResponse> {
+        let created_tasks = self.task_repository.bulk_create_tasks(bulk_request).await;
+        match created_tasks {
+            Ok(tasks) => Ok(TaskResponse::from_vec(tasks)),
+            Err(e) => {
+                let error_message = format!("Error bulk creating tasks: {:?}", e);
                 error!("{}", error_message);
                 Err(ErrorResponse::from(error_message))
             }

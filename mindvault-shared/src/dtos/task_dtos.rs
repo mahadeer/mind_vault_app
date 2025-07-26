@@ -22,3 +22,9 @@ pub struct CreateTaskRequest {
     pub priority: Option<ETaskPriority>,
     pub status: Option<ETaskStatus>,
 }
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BulkCreateTaskRequest {
+    pub tasks: Vec<CreateTaskRequest>,
+}

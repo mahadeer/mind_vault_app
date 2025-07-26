@@ -1,12 +1,14 @@
 use crate::models::{AppDatabase, DbCollection, DbError};
 use crate::repository::auto_increment::{
-    get_next_id_for_collection, AUTO_INCREMENT_COLLECTION_NAME,
+    get_next_id_for_collection, get_next_id_range_for_collection, AUTO_INCREMENT_COLLECTION_NAME,
 };
 use bson::{DateTime as BsonDateTime, Document};
 use chrono::{Duration, NaiveDate, TimeZone, Utc};
 use futures_util::TryStreamExt;
-use mindvault_shared::dtos::task_dtos::{CreateTaskRequest, TaskSearchParams};
-use mindvault_shared::models::tasks_model::{Task};
+use mindvault_shared::dtos::task_dtos::{
+    BulkCreateTaskRequest, CreateTaskRequest, TaskSearchParams,
+};
+use mindvault_shared::models::tasks_model::Task;
 use mongodb::bson::doc;
 use mongodb::{bson, Collection};
 use tracing::info;
@@ -27,6 +29,15 @@ impl TaskRepository {
             collection,
             counters_collection,
         }
+    }
+
+    /// Converts an optional NaiveDate to an optional BsonDateTime at midnight UTC
+    fn convert_due_date(due_date: Option<NaiveDate>) -> Option<BsonDateTime> {
+        due_date.map(|date: NaiveDate| {
+            let naive_dt = date.and_hms_opt(0, 0, 0).unwrap();
+            let utc_dt = Utc.from_utc_datetime(&naive_dt);
+            BsonDateTime::from(utc_dt)
+        })
     }
 
     pub async fn find_all(&self) -> Result<Vec<Task>, DbError> {
@@ -52,14 +63,11 @@ impl TaskRepository {
 
     pub async fn create_task(&self, new_task: CreateTaskRequest) -> Result<Task, DbError> {
         // Get the next task id via your counters' collection
-        let next_task_id = get_next_id_for_collection(&self.counters_collection, COLLECTION_NAME).await?;
+        let next_task_id =
+            get_next_id_for_collection(&self.counters_collection, COLLECTION_NAME).await?;
 
         // Convert Option<NaiveDate> to Option<BsonDateTime> at midnight UTC
-        let due_date = new_task.due_date.map(|date: NaiveDate| {
-            let naive_dt = date.and_hms_opt(0, 0, 0).unwrap();
-            let utc_dt = Utc.from_utc_datetime(&naive_dt);
-            BsonDateTime::from(utc_dt)
-        });
+        let due_date = Self::convert_due_date(new_task.due_date);
 
         // Use current UTC time directly for created_at
         let created_at = BsonDateTime::now();
@@ -77,6 +85,51 @@ impl TaskRepository {
 
         match self.collection.insert_one(&task).await {
             Ok(_) => Ok(task),
+            Err(e) => Err(e.into()),
+        }
+    }
+
+    pub async fn bulk_create_tasks(
+        &self,
+        bulk_request: BulkCreateTaskRequest,
+    ) -> Result<Vec<Task>, DbError> {
+        if bulk_request.tasks.is_empty() {
+            return Ok(Vec::new());
+        }
+
+        let task_count = bulk_request.tasks.len() as i64;
+
+        // Get the starting ID for the batch using the centralized auto_increment function
+        let start_id = get_next_id_range_for_collection(
+            &self.counters_collection,
+            COLLECTION_NAME,
+            task_count,
+        )
+        .await?;
+
+        let created_at = BsonDateTime::now();
+        let mut tasks_to_insert = Vec::new();
+
+        for (index, new_task) in bulk_request.tasks.into_iter().enumerate() {
+            // Convert Option<NaiveDate> to Option<BsonDateTime> at midnight UTC
+            let due_date = Self::convert_due_date(new_task.due_date);
+
+            let task = Task {
+                id: start_id + index as i64,
+                name: new_task.name,
+                priority: new_task.priority.unwrap_or_default(),
+                status: new_task.status.unwrap_or_default(),
+                due_date,
+                created_at,
+            };
+
+            tasks_to_insert.push(task);
+        }
+
+        info!("Bulk inserting {} tasks", tasks_to_insert.len());
+
+        match self.collection.insert_many(&tasks_to_insert).await {
+            Ok(_) => Ok(tasks_to_insert),
             Err(e) => Err(e.into()),
         }
     }

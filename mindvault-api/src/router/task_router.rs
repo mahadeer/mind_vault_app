@@ -3,10 +3,12 @@ use crate::models::ApiResponse;
 use crate::services::task_service::TaskService;
 use axum::extract::{Path, Query, State};
 use axum::http::StatusCode;
-use axum::routing::get;
+use axum::routing::{get, post};
 use axum::{Json, Router};
-use mindvault_core::models::{AppDatabase};
-use mindvault_shared::dtos::task_dtos::{CreateTaskRequest, TaskSearchParams};
+use mindvault_core::models::AppDatabase;
+use mindvault_shared::dtos::task_dtos::{
+    BulkCreateTaskRequest, CreateTaskRequest, TaskSearchParams,
+};
 use mindvault_shared::models::tasks_model::TaskResponse;
 use std::sync::Arc;
 use tracing::info;
@@ -29,6 +31,7 @@ impl TaskRouter {
             )
             .route("/{:id}", get(TaskRouter::get_task_by_id_handler))
             .route("/search", get(TaskRouter::search_tasks_by_text_handler))
+            .route("/bulk", post(TaskRouter::bulk_create_tasks_handler))
             .with_state(self.task_service.clone())
     }
 
@@ -47,6 +50,35 @@ impl TaskRouter {
             "Created a new task {}",
             |data: &TaskResponse| data.id,
             "Unable to insert a new task into database"
+        )
+    }
+
+    async fn bulk_create_tasks_handler(
+        State(task_service): State<Arc<TaskService>>,
+        Json(payload): Json<BulkCreateTaskRequest>,
+    ) -> ApiResponse<Vec<TaskResponse>> {
+        if payload.tasks.is_empty() {
+            return Err((
+                StatusCode::BAD_REQUEST,
+                "Tasks array cannot be empty".to_string(),
+            ));
+        }
+
+        // Validate that all tasks have non-empty names
+        for task in &payload.tasks {
+            if task.name.trim().is_empty() {
+                return Err((
+                    StatusCode::BAD_REQUEST,
+                    "All tasks must have non-empty names".to_string(),
+                ));
+            }
+        }
+
+        handle_service_response!(
+            task_service.bulk_create_tasks(payload).await,
+            "Bulk created {} tasks",
+            |data: &Vec<TaskResponse>| data.len(),
+            "Unable to bulk insert tasks into database"
         )
     }
 
