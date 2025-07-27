@@ -1,7 +1,7 @@
 # Site settings
 title: MindVault - Personal Knowledge Management System
 description: Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access. Features standalone UI and LLM integration via MCP server support.
-baseurl: "/mindvault" # Clean URL path
+baseurl: "/mind_vault_app" # Match your actual repository name
 url: "https://mahadeer.github.io" # Your GitHub Pages domain
 
 # Build settings
