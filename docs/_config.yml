@@ -7,7 +7,7 @@ url: "https://mahadeer.github.io" # Your GitHub Pages domain
 # Build settings
 markdown: kramdown
 highlighter: rouge
-remote_theme: jekyll/minima
+theme: minima
 
 # Plugins
 plugins:
