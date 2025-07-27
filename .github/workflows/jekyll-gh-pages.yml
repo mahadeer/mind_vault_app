@@ -33,12 +33,12 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./docs
-          destination: ./docs/_site
+          source: ./docs          # ✅ CHANGED: Build from docs folder
+          destination: ./docs/_site # ✅ CHANGED: Output to docs/_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/_site
+          path: ./docs/_site      # ✅ CHANGED: Upload from docs/_site
 
   # Deployment job
   deploy:
