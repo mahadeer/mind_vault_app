@@ -8,6 +8,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mindvault-api/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mindvault-core/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mindvault-mcp/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mindvault-shared/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mindvault-ui/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

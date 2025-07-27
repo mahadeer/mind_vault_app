@@ -39,7 +39,13 @@ def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
     root_items = sorted([item for item in root_items_raw if item not in excluded_items], key=str.lower)
 
     # Specific folders to drill into (core, mcp, server, shared)
-    project_sub_folders_to_detail = ['core', 'mcp', 'server', 'shared']
+    project_sub_folders_to_detail = [
+    'mindvault-core',
+    'mindvault-mcp',
+    'mindvault-api',
+    'mindvault-shared',
+    'mindvault-ui'
+    ]
 
     for item in root_items:
         full_path = os.path.join(root_dir, item)

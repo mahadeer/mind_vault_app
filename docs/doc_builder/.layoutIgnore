@@ -12,3 +12,7 @@ logs
 # Specific files to exclude from the root layout if needed
 Cargo.lock
 docs
+mcp
+core
+shared
+server

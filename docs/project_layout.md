@@ -4,35 +4,37 @@ Here's a simplified overview of the project's folder structure:
 
 ```
 📄 Cargo.toml
-📁 core/
+📁 mindvault-api/
   ├── 📄 Cargo.toml
   ├── 📂 src/
-  │   ├── 📄 config.rs
-  │   ├── 📁 db/
+  │   ├── 📄 main.rs
+  │   ├── 📄 models.rs
+  │   ├── 📄 response_macro.rs
+  │   ├── 📁 router/
+  │   ├── 📁 services/
+📁 mindvault-core/
+  ├── 📄 Cargo.toml
+  ├── 📂 src/
+  │   ├── 📄 db.rs
   │   ├── 📄 lib.rs
   │   ├── 📄 models.rs
+  │   ├── 📄 mongo_config.rs
   │   ├── 📁 repository/
-📁 mcp/
+📁 mindvault-mcp/
   ├── 📄 Cargo.toml
   ├── 📂 src/
   │   ├── 📄 main.rs
-  │   ├── 📄 models.rs
-  │   ├── 📁 tools/
-  │   ├── 📄 utils.rs
-📄 README.md
-📁 server/
+📁 mindvault-shared/
   ├── 📄 Cargo.toml
   ├── 📂 src/
-  │   ├── 📁 helpers/
-  │   ├── 📄 main.rs
-  │   ├── 📁 routes/
-  │   ├── 📁 services/
-  │   ├── 📁 templates/
-📁 shared/
-  ├── 📄 Cargo.toml
-  ├── 📂 src/
-  │   ├── 📄 formatters.rs
+  │   ├── 📁 dtos/
   │   ├── 📄 lib.rs
   │   ├── 📄 logger.rs
   │   ├── 📁 models/
+  │   ├── 📁 utils/
+📁 mindvault-ui/
+  ├── 📄 Cargo.toml
+  ├── 📂 src/
+  │   ├── 📄 main.rs
+📄 README.md
 ```

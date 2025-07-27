@@ -1,0 +1,13 @@
+[package]
+name = "mindvault-api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.4"
+tokio = { version = "1.46.1", features = ["full"] } # For asynchronous operations (if you go async)
+tracing = "0.1.41"
+mindvault-core = { path = "../mindvault-core" }
+mindvault-shared = { path = "../mindvault-shared" }
+chrono = { version = "0.4.41", features = ["serde"] }
+bson = { version = "2.6", features = ["chrono-0_4"] }
