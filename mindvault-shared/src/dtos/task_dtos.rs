@@ -28,3 +28,29 @@ pub struct CreateTaskRequest {
 pub struct BulkCreateTaskRequest {
     pub tasks: Vec<CreateTaskRequest>,
 }
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct UpdateTaskRequest {
+    #[serde(default, deserialize_with = "deserialize_multiple_formats")]
+    pub due_date: Option<NaiveDate>,
+    pub priority: Option<ETaskPriority>,
+    pub status: Option<ETaskStatus>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SearchAndUpdateRequest {
+    // Search parameters
+    pub query: Option<String>,
+    pub status_filter: Option<ETaskStatus>,
+    pub priority_filter: Option<ETaskPriority>,
+    #[serde(default, deserialize_with = "deserialize_multiple_formats")]
+    pub due_date_filter: Option<NaiveDate>,
+
+    // Update fields
+    #[serde(default, deserialize_with = "deserialize_multiple_formats")]
+    pub due_date: Option<NaiveDate>,
+    pub priority: Option<ETaskPriority>,
+    pub status: Option<ETaskStatus>,
+}

@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "task-management-api-collection",
+		"name": "Task Management API",
+		"description": "Complete API collection for Task Management System with CRUD operations, bulk operations, and search functionality",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is an array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('array');",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 1000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": ["{{base_url}}"],
+							"path": ["tasks"]
+						},
+						"description": "Retrieves all non-deleted tasks from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "{{task_id}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Task created successfully\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.have.property('id');",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.eql('Review code changes');",
+									"});",
+									"",
+									"pm.test(\"Save task ID for future requests\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    if (responseJson.id) {",
+									"        pm.collectionVariables.set('created_task_id', responseJson.id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Review code changes\",\n  \"dueDate\": \"2024-02-15\",\n  \"priority\": \"High\",\n  \"status\": \"Pending\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": ["{{base_url}}"],
+							"path": ["tasks"]
+						},
+						"description": "Creates a new task with the provided details"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"Completed\",\n  \"priority\": \"Normal\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "{{task_id}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task (Soft Delete)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "{{task_id}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulk Operations",
+			"item": [
+				{
+					"name": "Bulk Create Tasks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tasks\": [\n    {\n      \"name\": \"Task 1\",\n      \"dueDate\": \"2024-02-01\",\n      \"priority\": \"High\",\n      \"status\": \"Pending\"\n    },\n    {\n      \"name\": \"Task 2\",\n      \"dueDate\": \"2024-02-05\",\n      \"priority\": \"Normal\",\n      \"status\": \"InProgress\"\n    },\n    {\n      \"name\": \"Task 3\",\n      \"priority\": \"Low\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/bulk",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "bulk"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Delete by Status",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/status/{{status}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "status", "{{status}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search Operations",
+			"item": [
+				{
+					"name": "Search Tasks by Text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/search?query={{search_query}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"],
+							"query": [
+								{
+									"key": "query",
+									"value": "{{search_query}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Tasks by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/search?status={{status}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"],
+							"query": [
+								{
+									"key": "status",
+									"value": "{{status}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Tasks by Priority",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/search?priority={{priority}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"],
+							"query": [
+								{
+									"key": "priority",
+									"value": "{{priority}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Tasks by Due Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/search?due_date={{due_date}}",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"],
+							"query": [
+								{
+									"key": "due_date",
+									"value": "{{due_date}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complex Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/search?query=review&status=Pending&priority=High",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"],
+							"query": [
+								{
+									"key": "query",
+									"value": "review"
+								},
+								{
+									"key": "status",
+									"value": "Pending"
+								},
+								{
+									"key": "priority",
+									"value": "High"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search and Update Tasks",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"review\",\n  \"statusFilter\": \"Pending\",\n  \"status\": \"InProgress\",\n  \"priority\": \"High\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/search",
+							"host": ["{{base_url}}"],
+							"path": ["tasks", "search"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "task_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "status",
+			"value": "Completed",
+			"type": "string"
+		},
+		{
+			"key": "priority",
+			"value": "High",
+			"type": "string"
+		},
+		{
+			"key": "search_query",
+			"value": "review",
+			"type": "string"
+		},
+		{
+			"key": "due_date",
+			"value": "2024-02-15",
+			"type": "string"
+		},
+		{
+			"key": "created_task_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

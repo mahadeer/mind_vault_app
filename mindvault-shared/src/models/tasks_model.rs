@@ -49,6 +49,8 @@ pub struct Task {
     pub due_date: Option<BsonDateTime>,
     #[serde(default = "default_utc_now")]
     pub created_at: BsonDateTime,
+    #[serde(default)]
+    pub deleted: Option<bool>,
 }
 
 #[derive(Debug, Clone, Serialize)]
