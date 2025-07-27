@@ -21,9 +21,7 @@ header_pages:
   - features.md
   - architecture_overview.md
   - tech_stack.md
-  - implementation.md
   - usage_examples.md
-  - project_layout.md
   - how_to_run.md
 
 # Collections
@@ -49,6 +47,8 @@ defaults:
 exclude:
   - doc_builder/
   - assets/postman/
+  - implementation.md
+  - project_layout.md
 
 # Include files
 include:
