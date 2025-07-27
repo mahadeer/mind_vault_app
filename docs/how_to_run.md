@@ -1,4 +1,11 @@
-## Running MindVault
+---
+layout: page
+title: How to Run
+nav_order: 9
+description: Running and testing the application
+---
+
+# How to Run MindVault
 
 MindVault can be run as a monolithic application or integrated with external tools.
 

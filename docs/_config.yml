@@ -1,0 +1,84 @@
+# Site settings
+title: MindVault - Personal Knowledge Management System
+description: Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access. Features standalone UI and LLM integration via MCP server support.
+baseurl: "/mindvault" # Clean URL path
+url: "https://mahadeer.github.io" # Your GitHub Pages domain
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Navigation
+header_pages:
+  - getting_started.md
+  - features.md
+  - architecture_overview.md
+  - tech_stack.md
+  - implementation.md
+  - usage_examples.md
+  - project_layout.md
+  - how_to_run.md
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "page"
+
+# Exclude files
+exclude:
+  - doc_builder/
+  - assets/postman/
+
+# Include files
+include:
+  - _pages
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# SEO
+author: Mahadeer Mohamed
+twitter:
+  username: mahadeer
+  card: summary
+
+# Social links
+github_username: mahadeer
+linkedin_username: mahadeer
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Markdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true

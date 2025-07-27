@@ -1,22 +1,71 @@
+---
+layout: page
+title: Usage Examples
+nav_order: 7
+description: Practical examples and LLM integration patterns for personal knowledge management
+---
 
-## Usage Examples (LLM Input Text)
+# Usage Examples (LLM Input Text)
+
+These examples demonstrate how to interact with MindVault for comprehensive personal knowledge management, including notes, tasks, reviews, and reminders.
+
+### Personal Notes Management Examples
+
+#### Creating and Managing Notes
+1. "Create a note about today's team meeting: 'Discussed Q1 goals, Sarah will lead the mobile project, deadline is March 15th.' Tag it as 'meeting' and 'Q1-planning'."
+2. "Add a note for my learning journal: 'Completed Rust async programming tutorial, key insight: tokio runtime manages async tasks efficiently.' Tag as 'learning' and 'rust'."
+3. "Store this idea: 'New feature idea for the app - dark mode toggle in settings. Users have been requesting this.' Tag as 'feature-idea' and 'ui-ux'."
+4. "Create a note about the client feedback: 'Client loves the new dashboard design but wants faster loading times. Consider implementing lazy loading for charts.' Tag as 'client-feedback' and 'performance'."
+
+#### Searching and Organizing Notes
+5. "Show me all notes tagged with 'meeting' from this week."
+6. "Find notes containing 'performance' or 'optimization'."
+7. "Get all my learning journal entries from the past month."
+8. "Show me notes about client feedback that mention 'dashboard'."
+
+### Reportee Reviews Management Examples
+
+#### Creating and Managing Reviews
+9. "Create a performance review for John Smith: 'Excellent work on the authentication module. Shows strong technical skills and attention to detail. Areas for improvement: communication in team meetings.' Set review date as January 15th, 2024."
+10. "Add feedback for Sarah Johnson: 'Great leadership on the mobile project. Successfully coordinated with design team and delivered on time. Goal for next quarter: mentor junior developers.' Tag as 'leadership' and 'Q1-review'."
+11. "Record a 1:1 meeting note for Mike Chen: 'Discussed career goals, interested in moving to senior role. Needs to improve code review skills and system design knowledge. Action: assign system design course.' Tag as '1on1' and 'career-development'."
+
+#### Review Analysis and Tracking
+12. "Show me all reviews for John Smith from the past year."
+13. "Find all reviews mentioning 'leadership' skills."
+14. "Get a summary of performance trends for my team this quarter."
+15. "Show me action items from all recent 1:1 meetings."
+
+### Reminders Management Examples
+
+#### Setting Reminders
+16. "Set a reminder for March 1st: 'Prepare Q1 performance reviews for the team'."
+17. "Create a recurring weekly reminder: 'Send team status update to stakeholders' every Friday."
+18. "Add a reminder for tomorrow: 'Follow up with client about the dashboard feedback'."
+19. "Set a reminder for next Monday: 'Review and approve John's pull request for the authentication feature'."
+
+#### Managing Reminders
+20. "Show me all reminders for this week."
+21. "What reminders do I have coming up in the next 3 days?"
+22. "Mark the client follow-up reminder as completed."
+23. "Snooze the performance review reminder until next week."
 
 ### Task Management Examples
 
 #### Creating Tasks
-1. "Create a task: 'Review code changes for the authentication module' with high priority, due next Friday."
-2. "Add a new task called 'Update API documentation' with normal priority and set it as pending."
-3. "I need to create a task for 'Prepare demo for stakeholders' with high priority, due on February 15th, 2024."
-4. "Create a task: 'Fix login bug reported by QA team' and mark it as in progress with high priority."
+24. "Create a task: 'Review code changes for the authentication module' with high priority, due next Friday."
+25. "Add a new task called 'Update API documentation' with normal priority and set it as pending."
+26. "I need to create a task for 'Prepare demo for stakeholders' with high priority, due on February 15th, 2024."
+27. "Create a task: 'Fix login bug reported by QA team' and mark it as in progress with high priority."
 
 #### Bulk Task Creation
-5. "Create multiple tasks for our sprint planning:
+28. "Create multiple tasks for our sprint planning:
    - 'Set up development environment' (high priority, pending)
    - 'Write unit tests for user service' (normal priority, pending)
    - 'Code review for feature branch' (high priority, pending)
    - 'Update deployment scripts' (normal priority, pending)"
 
-6. "I need to create several tasks for the new project:
+29. "I need to create several tasks for the new project:
    - 'Research competitor analysis' due January 30th
    - 'Design system architecture' with high priority
    - 'Create project timeline' with normal priority"

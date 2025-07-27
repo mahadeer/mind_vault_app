@@ -3,6 +3,52 @@ import os
 import re
 import sys
 
+def remove_jekyll_front_matter(content):
+    """
+    Removes Jekyll front matter from markdown content.
+
+    Jekyll front matter is YAML content between --- delimiters at the start of the file.
+
+    Args:
+        content (str): The markdown content that may contain Jekyll front matter
+
+    Returns:
+        str: The content with Jekyll front matter removed
+    """
+    lines = content.split('\n')
+    start_index = -1
+    end_index = -1
+
+    # Find the first --- (could be after some empty lines)
+    for i, line in enumerate(lines):
+        if line.strip() == '---':
+            start_index = i
+            break
+
+    # If we found a starting ---, look for the closing ---
+    if start_index != -1:
+        for i in range(start_index + 1, len(lines)):
+            if lines[i].strip() == '---':
+                end_index = i
+                break
+
+        # If we found both delimiters, remove the front matter
+        if end_index != -1:
+            # Keep everything before the first --- (if any) and everything after the second ---
+            before_front_matter = lines[:start_index]
+            after_front_matter = lines[end_index + 1:]
+
+            # Combine the parts
+            remaining_lines = before_front_matter + after_front_matter
+            cleaned_content = '\n'.join(remaining_lines)
+
+            # Remove any leading whitespace/newlines
+            cleaned_content = cleaned_content.lstrip()
+            return cleaned_content
+
+    # If no front matter found, return original content
+    return content
+
 def build_readme(template_path, output_path, include_dir):
     """
     Builds the README.md file by combining a template and included Markdown files.
@@ -14,13 +60,13 @@ def build_readme(template_path, output_path, include_dir):
                            relative to where the script is run.
     """
     try:
-        with open(template_path, 'r', encoding='utf-8') as f:
+        with open(template_path, 'r') as f:
             content = f.read()
     except FileNotFoundError:
-        print(f"Error: Template file not found at '{template_path}'")
+        print("Error: Template file not found at '{}'".format(template_path))
         return False
     except Exception as e:
-        print(f"Error reading template file '{template_path}': {e}")
+        print("Error reading template file '{}': {}".format(template_path, e))
         return False
 
     pattern = re.compile(r'\{\{@import\s*(.*?)\s*\}\}')
@@ -30,26 +76,35 @@ def build_readme(template_path, output_path, include_dir):
         # Construct the full path to the included file based on the provided include_dir
         full_include_path = os.path.join(include_dir, include_file_relative_to_include_dir)
         try:
-            with open(full_include_path, 'r', encoding='utf-8') as inc_f:
-                return inc_f.read()
+            with open(full_include_path, 'r') as inc_f:
+                content = inc_f.read()
+                # Remove Jekyll front matter if present
+                original_length = len(content)
+                content = remove_jekyll_front_matter(content)
+                if len(content) != original_length:
+                    print("  Removed Jekyll front matter from '{}' ({} -> {} chars)".format(
+                        include_file_relative_to_include_dir, original_length, len(content)))
+                return content
         except FileNotFoundError:
-            error_msg = f"**ERROR: Could not find include file: '{full_include_path}' (referenced by '{match.group(0)}' in template)**"
+            error_msg = "**ERROR: Could not find include file: '{}' (referenced by '{}' in template)**".format(
+                full_include_path, match.group(0))
             print(error_msg) # Print to console
             return error_msg # Also embed in output
         except Exception as e:
-            error_msg = f"**ERROR: Could not read include file '{full_include_path}': {e} (referenced by '{match.group(0)}' in template)**"
+            error_msg = "**ERROR: Could not read include file '{}': {} (referenced by '{}' in template)**".format(
+                full_include_path, e, match.group(0))
             print(error_msg) # Print to console
             return error_msg # Also embed in output
 
     combined_content = pattern.sub(replace_include, content)
 
     try:
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(output_path, 'w') as f:
             f.write(combined_content)
-        print(f"README built successfully: '{output_path}'")
+        print("README built successfully: '{}'".format(output_path))
         return True
     except Exception as e:
-        print(f"Error writing output file '{output_path}': {e}")
+        print("Error writing output file '{}': {}".format(output_path, e))
         return False
 
 if __name__ == "__main__":
@@ -102,9 +157,9 @@ if __name__ == "__main__":
     sys.path.remove(script_dir) # Clean up sys.path
 
     print("\n--- Building Main README ---")
-    print(f"Building README from template: {template_file}")
-    print(f"Outputting to: {output_file}")
-    print(f"Including sections from: {include_sections_dir}")
+    print("Building README from template: {}".format(template_file))
+    print("Outputting to: {}".format(output_file))
+    print("Including sections from: {}".format(include_sections_dir))
 
     if not build_readme(template_file, output_file, include_sections_dir):
         print("README build failed.")

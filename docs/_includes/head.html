@@ -1,0 +1,145 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- seo -%}
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}">
+<meta name="theme-color" content="#3498db">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+{%- feed_meta -%}
+{%- if jekyll.environment == 'production' and site.google_analytics -%}
+  {%- include google-analytics.html -%}
+{%- endif -%}
+
+<!-- Custom styles -->
+<style>
+  /* Include custom styles directly for better performance */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  .grid-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .grid-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .grid-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .grid-item h3 a {
+    text-decoration: none;
+    color: #2c3e50;
+  }
+
+  .grid-item h3 a:hover {
+    color: #3498db;
+  }
+
+  .grid-item p {
+    margin-bottom: 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+
+  .footer-note {
+    background: #f8f9fa;
+    border-top: 3px solid #3498db;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .footer-note p {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+
+  /* Enhanced code blocks */
+  .highlight {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+
+  .highlight pre {
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  /* API endpoint table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  table th, table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+  }
+
+  table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+
+  table code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .grid-item {
+      padding: 15px;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    table th, table td {
+      padding: 8px;
+    }
+  }
+</style>

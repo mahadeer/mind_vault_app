@@ -1,0 +1,26 @@
+{
+    "name": "MindVault - Personal Knowledge Management",
+    "short_name": "MindVault",
+    "description": "Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access",
+    "icons": [
+        {
+            "src": "/mindvault/assets/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/mindvault/assets/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/mindvault/assets/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3498db",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/mindvault/"
+}

@@ -3,7 +3,9 @@
 Here's a simplified overview of the project's folder structure:
 
 ```
+📁 .github/
 📄 Cargo.toml
+📄 GITHUB_PAGES_SETUP.md
 📁 mindvault-api/
   ├── 📄 Cargo.toml
   ├── 📂 src/

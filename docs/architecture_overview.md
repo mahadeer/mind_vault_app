@@ -1,5 +1,11 @@
+---
+layout: page
+title: Architecture Overview
+nav_order: 4
+description: System design and component overview
+---
 
-## Architecture Overview
+# Architecture Overview
 
 The MindVault ecosystem consists of three main parts:
 

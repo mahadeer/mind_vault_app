@@ -1,4 +1,11 @@
-## Tech Stack
+---
+layout: page
+title: Tech Stack
+nav_order: 5
+description: Technologies and frameworks used in MindVault
+---
+
+# Tech Stack
 
 * **Language:** <img src="https://cdn.simpleicons.org/rust/green" alt="Rust" width="15" height="15"/> Rust
 * **Backend:** <img src="https://avatars.githubusercontent.com/u/20248544?s=48&v=4" alt="Axum" width="15" height="15"/> Axum

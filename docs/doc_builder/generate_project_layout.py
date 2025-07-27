@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 
@@ -8,15 +9,15 @@ def get_excluded_items(ignore_file_path):
     """
     excluded = set()
     try:
-        with open(ignore_file_path, 'r', encoding='utf-8') as f:
+        with open(ignore_file_path, 'r') as f:
             for line in f:
                 stripped_line = line.strip()
                 if stripped_line and not stripped_line.startswith('#'):
                     excluded.add(stripped_line)
-    except FileNotFoundError:
-        print(f"Warning: .layoutIgnore file not found at '{ignore_file_path}'. No exclusions will be applied.", file=sys.stderr)
+    except IOError:
+        sys.stderr.write("Warning: .layoutIgnore file not found at '{}'. No exclusions will be applied.\n".format(ignore_file_path))
     except Exception as e:
-        print(f"Error reading .layoutIgnore file '{ignore_file_path}': {e}", file=sys.stderr)
+        sys.stderr.write("Error reading .layoutIgnore file '{}': {}\n".format(ignore_file_path, e))
     return excluded
 
 def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
@@ -25,7 +26,7 @@ def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
     and then contents of specific folders (core, mcp, server, shared) down to their src/.
     """
     if not os.path.isdir(root_dir):
-        print(f"Error: Root directory '{root_dir}' does not exist.", file=sys.stderr)
+        sys.stderr.write("Error: Root directory '{}' does not exist.\n".format(root_dir))
         return False
 
     excluded_items = get_excluded_items(ignore_file_path)
@@ -52,7 +53,7 @@ def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
 
         if os.path.isdir(full_path):
             if item in project_sub_folders_to_detail:
-                tree_lines.append(f"📁 {item}/") # Main project folder
+                tree_lines.append("📁 {}/".format(item)) # Main project folder
                 sub_items = sorted(os.listdir(full_path), key=str.lower)
                 for sub_item in sub_items:
                     sub_full_path = os.path.join(full_path, sub_item)
@@ -62,24 +63,24 @@ def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
 
                     if os.path.isdir(sub_full_path):
                         if sub_item == 'src': # Special treatment for 'src' folder
-                            tree_lines.append(f"  ├── 📂 {sub_item}/") # src folder icon
+                            tree_lines.append("  ├── 📂 {}/".format(sub_item)) # src folder icon
                             src_items = sorted(os.listdir(sub_full_path), key=str.lower)
                             for src_item in src_items:
                                 if src_item in excluded_items:
                                     continue
                                 # Just list items in src, don't recurse further
                                 if os.path.isdir(os.path.join(sub_full_path, src_item)):
-                                     tree_lines.append(f"  │   ├── 📁 {src_item}/")
+                                     tree_lines.append("  │   ├── 📁 {}/".format(src_item))
                                 else:
-                                     tree_lines.append(f"  │   ├── 📄 {src_item}")
+                                     tree_lines.append("  │   ├── 📄 {}".format(src_item))
                         else: # Other sub-folders of core/mcp/server/shared (not src)
-                            tree_lines.append(f"  ├── 📁 {sub_item}/")
+                            tree_lines.append("  ├── 📁 {}/".format(sub_item))
                     elif os.path.isfile(sub_full_path):
-                        tree_lines.append(f"  ├── 📄 {sub_item}")
+                        tree_lines.append("  ├── 📄 {}".format(sub_item))
             else: # Other top-level directories (e.g., docs/, but excluded)
-                tree_lines.append(f"📁 {item}/") # Default folder icon for others
+                tree_lines.append("📁 {}/".format(item)) # Default folder icon for others
         elif os.path.isfile(full_path):
-            tree_lines.append(f"📄 {item}") # File icon for top-level files
+            tree_lines.append("📄 {}".format(item)) # File icon for top-level files
 
     tree_lines.append("```") # End code block
 
@@ -89,12 +90,12 @@ def generate_simple_tree(root_dir, output_file_path, ignore_file_path):
     markdown_content += "\n".join(tree_lines) + "\n"
 
     try:
-        with open(output_file_path, 'w', encoding='utf-8') as f:
+        with open(output_file_path, 'w') as f:
             f.write(markdown_content)
-        print(f"Successfully generated project layout in '{output_file_path}'")
+        print("Successfully generated project layout in '{}'".format(output_file_path))
         return True
     except Exception as e:
-        print(f"Error writing to file '{output_file_path}': {e}", file=sys.stderr)
+        sys.stderr.write("Error writing to file '{}': {}\n".format(output_file_path, e))
         return False
 
 if __name__ == "__main__":
@@ -104,9 +105,9 @@ if __name__ == "__main__":
     output_file = os.path.join(project_root, "docs", "project_layout.md")
     ignore_file = os.path.join(script_dir, ".layoutIgnore") # This path should be correct now
 
-    print(f"Generating simple tree for project root: '{project_root}'")
-    print(f"Outputting to: '{output_file}'")
-    print(f"Reading exclusions from: '{ignore_file}'")
+    print("Generating simple tree for project root: '{}'".format(project_root))
+    print("Outputting to: '{}'".format(output_file))
+    print("Reading exclusions from: '{}'".format(ignore_file))
 
     if not generate_simple_tree(project_root, output_file, ignore_file):
         sys.exit(1)

@@ -1,14 +1,40 @@
 
------
+<div align="center">
+  <img src="docs/assets/favicon.svg" alt="MindVault Logo" width="128" height="128">
 
-# MindVault: Your Personal, Intelligent Knowledge Management System
+  # MindVault 🔐
+
+  **Personal Knowledge Management System**
+
+  *Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access*
+
+  [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue?style=flat-square)](https://mahadeer.github.io/mindvault/)
+  [![Rust](https://img.shields.io/badge/built%20with-Rust-orange?style=flat-square)](https://www.rust-lang.org/)
+  [![MongoDB](https://img.shields.io/badge/database-MongoDB-green?style=flat-square)](https://www.mongodb.com/)
+  [![Axum](https://img.shields.io/badge/framework-Axum-purple?style=flat-square)](https://github.com/tokio-rs/axum)
+  [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+</div>
+
+---
+
+## 🎯 Overview
 
 MindVault is a robust, local, and intelligent knowledge management system built with **Rust**. It's designed to help you organize and gain insights from your personal notes, tasks, reportee reviews, to-dos, and reminders. MindVault is composed of several integrated components to provide a comprehensive solution for managing your personal data and leveraging the power of Large Language Models (LLMs).
 
------
+### 🌟 Key Features
 
+- 📝 **Personal Notes Management** - Store and organize your thoughts and ideas
+- ✅ **Task Management** - Track to-dos with priorities and due dates
+- 👥 **Reportee Reviews** - Manage performance reviews and feedback
+- ⏰ **Reminders** - Never forget important dates and follow-ups
+- 🔌 **Dual Integration** - Standalone UI + LLM integration via MCP server
+- 🛡️ **Privacy First** - Local storage with optional cloud deployment
 
-## Architecture Overview
+📚 **[View Full Documentation](https://mahadeer.github.io/mindvault/)** | 🧪 **[API Testing with Postman](https://mahadeer.github.io/mindvault/usage_examples.html)**
+
+---
+
+# Architecture Overview
 
 The MindVault ecosystem consists of three main parts:
 
@@ -34,19 +60,158 @@ The MindVault ecosystem consists of three main parts:
 
 -----
 
-## Features
+# Features
 
-* **Centralized Data Management:** Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access.
-* **LLM-Ready Data Export:** Generate structured JSON data from your notes and comments, designed for consumption by any supported Large Language Model (LLM) or AI tool for summarization and analysis.
-* **Task & Reminder Tracking:** Keep track of your to-dos and receive timely notifications for important events (planned).
-* **Local & Private:** Designed to run entirely on your local system, ensuring your data remains private and secure.
-* **High Performance:** Built with Rust for efficiency, reliability, and speed.
-* **Flexible Filtering:** The API supports filtering comments and other data by `person_name`, `created_at` (date ranges), and `keywords`.
+MindVault is designed as a comprehensive personal knowledge management system that serves as your central hub for organizing notes, tasks, reviews, and reminders.
+
+## 📝 Personal Notes Management
+
+### Core Features
+- **Rich Text Support**: Store formatted notes with markdown support
+- **Categorization**: Organize notes with tags and categories
+- **Full-Text Search**: Find notes quickly using content search
+- **Version History**: Track changes and maintain note history
+- **Attachments**: Link files and documents to notes (planned)
+
+### Organization
+- **Tag System**: Flexible tagging for easy categorization
+- **Folder Structure**: Hierarchical organization of notes
+- **Favorites**: Mark important notes for quick access
+- **Archive**: Soft delete with archive functionality
+
+## ✅ Task Management
+
+### Task Features
+- **CRUD Operations**: Create, read, update, and delete tasks
+- **Priority Levels**: High, Normal, Low priority assignment
+- **Status Tracking**: Pending, In Progress, Completed states
+- **Due Dates**: Set and track deadlines
+- **Bulk Operations**: Efficient bulk create and update operations
+
+### Advanced Capabilities
+- **Search & Filter**: Find tasks by name, status, priority, or due date
+- **Soft Delete**: Maintain data integrity with soft deletion
+- **Partial Updates**: Update only specific fields
+- **Auto-increment IDs**: Efficient ID generation for bulk operations
+
+## 👥 Reportee Reviews Management
+
+### Review Features
+- **Performance Tracking**: Store and organize employee reviews
+- **Historical Data**: Maintain review history over time
+- **Structured Feedback**: Organized feedback categories
+- **Progress Monitoring**: Track improvement and development
+- **Review Templates**: Standardized review formats (planned)
+
+### Management Tools
+- **Reportee Profiles**: Individual employee information
+- **Review Scheduling**: Plan and track review cycles
+- **Goal Setting**: Set and monitor objectives
+- **Feedback Analytics**: Insights from review data (planned)
+
+## ⏰ Reminders & Notifications
+
+### Reminder Features
+- **Date-based Reminders**: Set reminders for specific dates
+- **Recurring Reminders**: Repeat reminders on schedule
+- **Priority Levels**: Important vs. standard reminders
+- **Categories**: Organize reminders by type
+- **Snooze Functionality**: Postpone reminders (planned)
+
+### Notification System
+- **Due Date Alerts**: Notifications for approaching deadlines
+- **Overdue Warnings**: Alerts for missed items
+- **Daily Summaries**: Overview of upcoming items
+- **Custom Notifications**: Personalized alert preferences (planned)
+
+## 🔌 Integration Options
+
+### Standalone Application
+- **Web Interface**: Dedicated UI for direct interaction
+- **Responsive Design**: Works on desktop and mobile
+- **Offline Capability**: Local data storage and sync (planned)
+- **Export/Import**: Data portability and backup
+
+### LLM Integration
+- **MCP Server Support**: Compatible with Model Context Protocol
+- **AI Assistant Integration**: Works with Claude, ChatGPT, and others
+- **Natural Language Queries**: Ask questions about your data
+- **Smart Insights**: AI-powered analysis and summaries
+
+### API Access
+- **RESTful APIs**: Standard HTTP endpoints for all features
+- **Authentication**: Secure API access (planned)
+- **Rate Limiting**: API usage management
+- **Webhooks**: Event-driven integrations (planned)
+
+## 🛡️ Data Security & Privacy
+
+### Privacy Features
+- **Local Storage**: Data remains on your system
+- **No Cloud Dependency**: Fully self-hosted option
+- **Data Encryption**: Secure data storage (planned)
+- **Access Control**: User authentication and authorization (planned)
+
+### Data Integrity
+- **Input Validation**: Comprehensive data validation
+- **Backup & Recovery**: Data backup mechanisms
+- **Audit Trail**: Track data changes and access
+- **Data Migration**: Easy data export and import
+
+## 🚀 Performance & Reliability
+
+### Technical Excellence
+- **Rust Backend**: High-performance, memory-safe implementation
+- **MongoDB**: Flexible, scalable data storage
+- **Efficient Indexing**: Fast search and retrieval
+- **Optimized Queries**: Minimal database load
+
+### Scalability
+- **Bulk Operations**: Handle large data sets efficiently
+- **Pagination**: Manage large result sets
+- **Caching**: Improved response times (planned)
+- **Load Balancing**: Scale for multiple users (planned)
+
+## 🔍 Search & Discovery
+
+### Search Capabilities
+- **Full-Text Search**: Search across all content types
+- **Advanced Filters**: Complex search criteria
+- **Saved Searches**: Store frequently used queries
+- **Search History**: Track previous searches
+
+### Discovery Features
+- **Related Content**: Find connected information
+- **Trending Topics**: Popular tags and categories
+- **Recent Activity**: Latest updates and changes
+- **Smart Suggestions**: AI-powered content recommendations (planned)
 
 
 -----
 
-## Getting Started
+# Getting Started
+
+Welcome to **MindVault**, a comprehensive personal knowledge management system designed to store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access.
+
+## 🎯 Project Vision
+
+MindVault serves as your central hub for personal knowledge management, offering:
+
+- **📝 Personal Notes**: Store and organize your thoughts, ideas, and observations
+- **✅ Task Management**: Track your to-dos, projects, and deadlines
+- **👥 Reportee Reviews**: Manage performance reviews and feedback for team members
+- **⏰ Reminders**: Never forget important dates, meetings, or follow-ups
+- **🔍 Easy Access**: Quick search and categorization for instant retrieval
+
+## 🔌 Integration Options
+
+MindVault is designed to work in multiple ways:
+
+1. **🖥️ Standalone Web Application**: Use the dedicated UI for direct interaction
+2. **🤖 LLM Integration**: Connect with any MCP (Model Context Protocol) server-supported applications
+3. **🔗 API Access**: Integrate with your existing tools and workflows
+
+## 🚀 Quick Setup
 
 These instructions will guide you through setting up and running MindVault on your local machine.
 
@@ -71,7 +236,7 @@ These instructions will guide you through setting up and running MindVault on yo
 
 -----
 
-## Running MindVault
+# How to Run MindVault
 
 MindVault can be run as a monolithic application or integrated with external tools.
 
@@ -105,25 +270,67 @@ MindVault is designed to be launched and managed by external tools or workflows 
 
 -----
 
+# Usage Examples (LLM Input Text)
 
-## Usage Examples (LLM Input Text)
+These examples demonstrate how to interact with MindVault for comprehensive personal knowledge management, including notes, tasks, reviews, and reminders.
+
+### Personal Notes Management Examples
+
+#### Creating and Managing Notes
+1. "Create a note about today's team meeting: 'Discussed Q1 goals, Sarah will lead the mobile project, deadline is March 15th.' Tag it as 'meeting' and 'Q1-planning'."
+2. "Add a note for my learning journal: 'Completed Rust async programming tutorial, key insight: tokio runtime manages async tasks efficiently.' Tag as 'learning' and 'rust'."
+3. "Store this idea: 'New feature idea for the app - dark mode toggle in settings. Users have been requesting this.' Tag as 'feature-idea' and 'ui-ux'."
+4. "Create a note about the client feedback: 'Client loves the new dashboard design but wants faster loading times. Consider implementing lazy loading for charts.' Tag as 'client-feedback' and 'performance'."
+
+#### Searching and Organizing Notes
+5. "Show me all notes tagged with 'meeting' from this week."
+6. "Find notes containing 'performance' or 'optimization'."
+7. "Get all my learning journal entries from the past month."
+8. "Show me notes about client feedback that mention 'dashboard'."
+
+### Reportee Reviews Management Examples
+
+#### Creating and Managing Reviews
+9. "Create a performance review for John Smith: 'Excellent work on the authentication module. Shows strong technical skills and attention to detail. Areas for improvement: communication in team meetings.' Set review date as January 15th, 2024."
+10. "Add feedback for Sarah Johnson: 'Great leadership on the mobile project. Successfully coordinated with design team and delivered on time. Goal for next quarter: mentor junior developers.' Tag as 'leadership' and 'Q1-review'."
+11. "Record a 1:1 meeting note for Mike Chen: 'Discussed career goals, interested in moving to senior role. Needs to improve code review skills and system design knowledge. Action: assign system design course.' Tag as '1on1' and 'career-development'."
+
+#### Review Analysis and Tracking
+12. "Show me all reviews for John Smith from the past year."
+13. "Find all reviews mentioning 'leadership' skills."
+14. "Get a summary of performance trends for my team this quarter."
+15. "Show me action items from all recent 1:1 meetings."
+
+### Reminders Management Examples
+
+#### Setting Reminders
+16. "Set a reminder for March 1st: 'Prepare Q1 performance reviews for the team'."
+17. "Create a recurring weekly reminder: 'Send team status update to stakeholders' every Friday."
+18. "Add a reminder for tomorrow: 'Follow up with client about the dashboard feedback'."
+19. "Set a reminder for next Monday: 'Review and approve John's pull request for the authentication feature'."
+
+#### Managing Reminders
+20. "Show me all reminders for this week."
+21. "What reminders do I have coming up in the next 3 days?"
+22. "Mark the client follow-up reminder as completed."
+23. "Snooze the performance review reminder until next week."
 
 ### Task Management Examples
 
 #### Creating Tasks
-1. "Create a task: 'Review code changes for the authentication module' with high priority, due next Friday."
-2. "Add a new task called 'Update API documentation' with normal priority and set it as pending."
-3. "I need to create a task for 'Prepare demo for stakeholders' with high priority, due on February 15th, 2024."
-4. "Create a task: 'Fix login bug reported by QA team' and mark it as in progress with high priority."
+24. "Create a task: 'Review code changes for the authentication module' with high priority, due next Friday."
+25. "Add a new task called 'Update API documentation' with normal priority and set it as pending."
+26. "I need to create a task for 'Prepare demo for stakeholders' with high priority, due on February 15th, 2024."
+27. "Create a task: 'Fix login bug reported by QA team' and mark it as in progress with high priority."
 
 #### Bulk Task Creation
-5. "Create multiple tasks for our sprint planning:
+28. "Create multiple tasks for our sprint planning:
    - 'Set up development environment' (high priority, pending)
    - 'Write unit tests for user service' (normal priority, pending)
    - 'Code review for feature branch' (high priority, pending)
    - 'Update deployment scripts' (normal priority, pending)"
 
-6. "I need to create several tasks for the new project:
+29. "I need to create several tasks for the new project:
    - 'Research competitor analysis' due January 30th
    - 'Design system architecture' with high priority
    - 'Create project timeline' with normal priority"
@@ -424,7 +631,7 @@ The timeline spans about 6 weeks with logical dependencies. I recommend starting
 
 -----
 
-## Tech Stack
+# Tech Stack
 
 * **Language:** <img src="https://cdn.simpleicons.org/rust/green" alt="Rust" width="15" height="15"/> Rust
 * **Backend:** <img src="https://avatars.githubusercontent.com/u/20248544?s=48&v=4" alt="Axum" width="15" height="15"/> Axum
@@ -441,7 +648,9 @@ The timeline spans about 6 weeks with logical dependencies. I recommend starting
 Here's a simplified overview of the project's folder structure:
 
 ```
+📁 .github/
 📄 Cargo.toml
+📄 GITHUB_PAGES_SETUP.md
 📁 mindvault-api/
   ├── 📄 Cargo.toml
   ├── 📂 src/
@@ -494,14 +703,32 @@ Here's a simplified overview of the project's folder structure:
 </div>
 
 
-## Contributing
+## 🤝 Contributing
 
-MindVault is currently designed for personal use. However, if you have suggestions or want to contribute, feel free to open an issue or submit a pull request\!
+MindVault is currently designed for personal use. However, if you have suggestions or want to contribute, feel free to open an issue or submit a pull request!
 
------
+### Development
 
-## License
+- **Documentation**: [https://mahadeer.github.io/mindvault/](https://mahadeer.github.io/mindvault/)
+- **API Testing**: Use the included Postman collection for comprehensive testing
+- **Architecture**: Follow the existing layered architecture (Router → Service → Repository)
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License—see the `LICENSE` file for details.
 
------
+---
+
+<div align="center">
+
+  **MindVault** - Your Personal Knowledge Management System
+
+  🔗 **Links:** [Documentation](https://mahadeer.github.io/mindvault/) • [API Guide](https://mahadeer.github.io/mindvault/usage_examples.html) • [Architecture](https://mahadeer.github.io/mindvault/architecture_overview.html)
+
+  🛠️ **Built with:** [Rust](https://www.rust-lang.org/) • [Axum](https://github.com/tokio-rs/axum) • [MongoDB](https://www.mongodb.com/)
+
+  ⭐ **Star this repo if you find it useful!**
+
+</div>

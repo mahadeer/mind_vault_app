@@ -1,11 +1,38 @@
 
------
+<div align="center">
+  <img src="docs/assets/favicon.svg" alt="MindVault Logo" width="128" height="128">
 
-# MindVault: Your Personal, Intelligent Knowledge Management System
+  # MindVault 🔐
+
+  **Personal Knowledge Management System**
+
+  *Store and categorize all your personal notes, tasks, reportee reviews, and reminders for easy access*
+
+  [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue?style=flat-square)](https://mahadeer.github.io/mindvault/)
+  [![Rust](https://img.shields.io/badge/built%20with-Rust-orange?style=flat-square)](https://www.rust-lang.org/)
+  [![MongoDB](https://img.shields.io/badge/database-MongoDB-green?style=flat-square)](https://www.mongodb.com/)
+  [![Axum](https://img.shields.io/badge/framework-Axum-purple?style=flat-square)](https://github.com/tokio-rs/axum)
+  [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+</div>
+
+---
+
+## 🎯 Overview
 
 MindVault is a robust, local, and intelligent knowledge management system built with **Rust**. It's designed to help you organize and gain insights from your personal notes, tasks, reportee reviews, to-dos, and reminders. MindVault is composed of several integrated components to provide a comprehensive solution for managing your personal data and leveraging the power of Large Language Models (LLMs).
 
------
+### 🌟 Key Features
+
+- 📝 **Personal Notes Management** - Store and organize your thoughts and ideas
+- ✅ **Task Management** - Track to-dos with priorities and due dates
+- 👥 **Reportee Reviews** - Manage performance reviews and feedback
+- ⏰ **Reminders** - Never forget important dates and follow-ups
+- 🔌 **Dual Integration** - Standalone UI + LLM integration via MCP server
+- 🛡️ **Privacy First** - Local storage with optional cloud deployment
+
+📚 **[View Full Documentation](https://mahadeer.github.io/mindvault/)** | 🧪 **[API Testing with Postman](https://mahadeer.github.io/mindvault/usage_examples.html)**
+
+---
 
 {{@import architecture_overview.md}}
 
@@ -51,14 +78,32 @@ MindVault is a robust, local, and intelligent knowledge management system built 
 </div>
 
 
-## Contributing
+## 🤝 Contributing
 
-MindVault is currently designed for personal use. However, if you have suggestions or want to contribute, feel free to open an issue or submit a pull request\!
+MindVault is currently designed for personal use. However, if you have suggestions or want to contribute, feel free to open an issue or submit a pull request!
 
------
+### Development
 
-## License
+- **Documentation**: [https://mahadeer.github.io/mindvault/](https://mahadeer.github.io/mindvault/)
+- **API Testing**: Use the included Postman collection for comprehensive testing
+- **Architecture**: Follow the existing layered architecture (Router → Service → Repository)
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License—see the `LICENSE` file for details.
 
------
+---
+
+<div align="center">
+
+  **MindVault** - Your Personal Knowledge Management System
+
+  🔗 **Links:** [Documentation](https://mahadeer.github.io/mindvault/) • [API Guide](https://mahadeer.github.io/mindvault/usage_examples.html) • [Architecture](https://mahadeer.github.io/mindvault/architecture_overview.html)
+
+  🛠️ **Built with:** [Rust](https://www.rust-lang.org/) • [Axum](https://github.com/tokio-rs/axum) • [MongoDB](https://www.mongodb.com/)
+
+  ⭐ **Star this repo if you find it useful!**
+
+</div>

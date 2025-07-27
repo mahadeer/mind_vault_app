@@ -1,0 +1,228 @@
+// Custom styles for MindVault documentation
+
+// Grid layout for documentation sections
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.grid-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+    a {
+      text-decoration: none;
+      color: #2c3e50;
+      
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
+  
+  p {
+    margin-bottom: 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+}
+
+// Enhanced code blocks
+.highlight {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 16px 0;
+  overflow-x: auto;
+  
+  pre {
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+}
+
+// API endpoint table styling
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  
+  th, td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+}
+
+// Navigation enhancements
+.site-nav {
+  .page-link {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+// Footer styling
+.footer-note {
+  background: #f8f9fa;
+  border-top: 3px solid #3498db;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+  
+  p {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+}
+
+// Alert boxes for important information
+.alert {
+  padding: 15px;
+  margin: 20px 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  
+  &.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  
+  &.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+  }
+  
+  &.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+}
+
+// Badge styling for status indicators
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px;
+  
+  &.badge-success {
+    color: #fff;
+    background-color: #28a745;
+  }
+  
+  &.badge-warning {
+    color: #212529;
+    background-color: #ffc107;
+  }
+  
+  &.badge-info {
+    color: #fff;
+    background-color: #17a2b8;
+  }
+  
+  &.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .grid-item {
+    padding: 15px;
+  }
+  
+  table {
+    font-size: 14px;
+    
+    th, td {
+      padding: 8px;
+    }
+  }
+}
+
+// Dark mode support (optional)
+@media (prefers-color-scheme: dark) {
+  .grid-item {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+    
+    h3 a {
+      color: #e2e8f0;
+      
+      &:hover {
+        color: #63b3ed;
+      }
+    }
+    
+    p {
+      color: #a0aec0;
+    }
+  }
+  
+  .footer-note {
+    background: #2d3748;
+    border-top-color: #63b3ed;
+    
+    p {
+      color: #e2e8f0;
+    }
+  }
+}
