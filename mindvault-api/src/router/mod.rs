@@ -6,6 +6,7 @@ use axum::Router;
 use axum::routing::get;
 use mindvault_core::models::AppDatabase;
 use crate::router::task_router::TaskRouter;
+use tower_http::cors::{CorsLayer, Any};
 
 pub struct MindVaultRouter {
     pub db_client: AppDatabase,
@@ -21,9 +22,16 @@ impl MindVaultRouter {
             .format("%d/%m/%y %H:%M %Z")
             .to_string()
             .to_string();
+
+        let cors = CorsLayer::new()
+            .allow_origin(Any)
+            .allow_methods(Any)
+            .allow_headers(Any);
+
         let router = Router::new()
             .route("/", get(root_handler).with_state(server_up_since))
-            .nest("/tasks", self.get_task_routes());
+            .nest("/tasks", self.get_task_routes())
+            .layer(cors);
         router
     }
 
