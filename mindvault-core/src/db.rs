@@ -11,3 +11,7 @@ pub async fn bootstrap_db() -> Result<Database, DbError> {
     info!("Database schema initialized successfully.");
     Ok(conn.database(mongo_config.db_name.as_str()))
 }
+
+pub async fn get_app_database() -> Result<Database, DbError> {
+    bootstrap_db().await
+}

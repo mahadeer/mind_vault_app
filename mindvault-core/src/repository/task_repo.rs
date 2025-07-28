@@ -14,6 +14,7 @@ use mongodb::bson::doc;
 use mongodb::{bson, Collection};
 use tracing::info;
 
+#[derive(Debug)]
 pub struct TaskRepository {
     collection: Collection<Task>,
     counters_collection: DbCollection<Document>,

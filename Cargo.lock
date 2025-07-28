@@ -1311,10 +1311,13 @@ dependencies = [
 name = "mindvault-mcp"
 version = "0.1.0"
 dependencies = [
+ "mindvault-core",
+ "mindvault-shared",
  "reqwest",
  "rmcp",
  "serde",
  "tokio",
+ "tracing",
 ]
 
 [[package]]

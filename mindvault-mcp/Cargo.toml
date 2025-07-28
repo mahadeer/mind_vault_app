@@ -5,14 +5,17 @@ edition = "2024"
 
 [[bin]]
 name = "mindvault-tasks-mcp"
-path = "src/bin/tasks_main.rs"
+path = "src/tasks_main.rs"
 
 [[bin]]
 name = "mindvault-notes-mcp"
-path = "src/bin/notes_main.rs"
+path = "src/notes_main.rs"
 
 [dependencies]
 rmcp = { version = "0.3", features = ["server", "transport-io"] }
 tokio = { version = "1.46", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 reqwest = { version = "0.12", features = ["json"] }
+tracing = "0.1.41"
+mindvault-core = { path = "../mindvault-core" }
+mindvault-shared = { path = "../mindvault-shared" }
