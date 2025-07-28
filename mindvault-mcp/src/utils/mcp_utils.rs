@@ -10,3 +10,7 @@ pub trait MCPOutputFormatter {
 pub trait MCPUtils: MCPOutputFormatter {
     fn into_call_tool_result(self) -> CallToolResult;
 }
+
+pub trait EnumFormatter<T> {
+    fn as_type(&self) -> Option<T>;
+}

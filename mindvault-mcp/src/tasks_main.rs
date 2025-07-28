@@ -1,6 +1,7 @@
 mod formatters;
 mod tools;
 mod utils;
+mod models;
 
 use crate::tools::task_tool_handler::TaskToolServer;
 use mindvault_shared::logger::init_logger;

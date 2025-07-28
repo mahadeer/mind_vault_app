@@ -235,7 +235,7 @@ impl TaskRepository {
         }
         if let Some(due_date) = update_request.due_date {
             let converted_date = Self::convert_due_date(Some(due_date));
-            set_fields.insert("due_date", bson::to_bson(&converted_date)?);
+            set_fields.insert("dueDate", bson::to_bson(&converted_date)?);
         }
 
         let update = doc! { "$set": set_fields };
@@ -325,7 +325,7 @@ impl TaskRepository {
         }
         if let Some(due_date) = request.due_date {
             let converted_date = Self::convert_due_date(Some(due_date));
-            set_fields.insert("due_date", bson::to_bson(&converted_date)?);
+            set_fields.insert("dueDate", bson::to_bson(&converted_date)?);
         }
 
         let update = doc! { "$set": set_fields };
